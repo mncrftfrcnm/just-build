@@ -1,0 +1,19 @@
+# Release checklist
+
+## Share the experimental source preview
+
+The initial public version, **0.0.1**, is an experimental preview. The [strict audit](STRICT_AUDIT.md) supports sharing the source as an experimental preview after local repairs and artifact verification. Keep Claude's experimental status and incomplete native/browser/hosted evidence prominent. Do not announce a stable or proven autonomous dual-host release.
+
+## Verify and publish candidate assets
+
+1. Choose the repository owner/name and review the MIT license and source provenance. Keep the supported local CLI scope and remaining evidence gaps visible.
+2. Push the prepared source to a GitHub repository. Observe every job of the [CI workflow](../.github/workflows/tests.yml) passing; local Windows results do not substitute for the hosted matrix.
+3. After the first observed passing run, require the stable **CI** check from the **CI** workflow in the default-branch ruleset. It checks every repository/skill/example/package predecessor and fails when a predecessor job fails, is cancelled or is skipped. Review test-level skips separately; the aggregate does not parse individual unittest results. Require pull requests and appropriate review, block force pushes/deletion and apply rules consistently. Verify merge-group behavior if enabling a queue. Do not require the manual **Release verification** check on ordinary PRs. These account-side settings are not established by YAML; see [GITHUB_SETUP.md](GITHUB_SETUP.md).
+4. Enable private vulnerability reporting and available secret scanning/push protection. Restrict Actions to reviewed sources and require approval for outside contributors. Review weekly Dependabot action updates. No secrets or self-hosted runner access are required for CI.
+5. Review CHANGELOG and prepare the isolated environment in the [development guide](DEVELOPMENT.md). Run all repository, both host-package and generated-example checks listed there. Build with `python tools/build_release.py`, then `python tools/verify_release.py --artifacts dist` against the corresponding trusted checkout. Each install ZIP has `just-build/SKILL.md`; the source archive includes `.github` and both curated examples. Use a new or empty output directory; existing artifacts, nonempty output and output overlapping source are refused. Repeated builds in the same environment use deterministic contents/timestamps; compare checksums in a fresh output directory.
+6. Obtain the exact full 40-character commit SHA of the reviewed commit. Manually run [Verify release candidate](../.github/workflows/release-check.yml) using this SHA. It validates the checkout and repeats the Windows/Ubuntu checks on the SHA, then uploads verified candidate assets without publishing. Inspect the results only after **Release verification** succeeds; preserve them before artifact retention expires.
+7. Optionally create a GitHub **prerelease** manually on the reviewed passing commit. GitHub requires a Git tag for a release; use `v0.0.1` to match `VERSION`, creating it on that exact commit. An ordinary repository share does not require a tag. Attach the two skill ZIPs, source ZIP and checksum file. State actual validation and limitations. Review generated release-note categories and include unresolved compatibility/security notes. No workflow creates releases or tags. Checksums and checkout comparisons are not publisher signatures.
+
+## Broaden the supported release
+
+Run an actual Claude Code build and observe the full hosted matrix. Exercise non-CSV and UI/web projects with independent public-path checks. Repeat fresh runs without maintainer intervention, recording failures, elapsed time, usage and review identities. Collect authorized user feedback before making demand or usefulness claims. Rebuild and exercise the actual delivered path, declaring generated files that must be fresh. Do not infer broad stable readiness from unit-test counts or an arbitrary review score.

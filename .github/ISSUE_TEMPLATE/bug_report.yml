@@ -1,0 +1,23 @@
+name: Bug report
+description: Report a reproducible problem with the skill or helpers
+body:
+  - type: markdown
+    attributes:
+      value: Do not include secrets or private chat history. For sensitive issues, see SECURITY.md.
+  - type: input
+    id: environment
+    attributes:
+      label: Revision, host, OS and Python version
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal synthetic reproduction
+      description: Include commands, expected behavior and actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Redacted output and limitations

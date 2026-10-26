@@ -1,0 +1,16 @@
+{
+  "name": "Local API external rate and recovery contract",
+  "launch": {"argv": ["{python}", "{project}/server.py", "--port", "{port}"], "ready_path": "/health"},
+  "scenarios": [
+    {"id": "first-run-and-input-error", "steps": [
+      {"method":"GET", "path":"/items", "headers":{"X-Client-ID":"first"}, "status":200, "body_contains":["items"]},
+      {"method":"GET", "path":"/bad", "status":400, "body_contains":["invalid request"]}
+    ]},
+    {"id":"enforcement-and-recovery", "steps":[
+      {"method":"GET", "path":"/items", "headers":{"X-Client-ID":"throttle"}, "status":200, "body_contains":["items"]},
+      {"method":"GET", "path":"/items", "headers":{"X-Client-ID":"throttle"}, "status":200, "body_contains":["items"]},
+      {"method":"GET", "path":"/items", "headers":{"X-Client-ID":"throttle"}, "status":429, "body_contains":["rate limit"], "header_contains":{"Retry-After":"1"}},
+      {"method":"GET", "path":"/items", "headers":{"X-Client-ID":"throttle"}, "wait_seconds":0.8, "status":200, "body_contains":["items"]}
+    ]}
+  ]
+}

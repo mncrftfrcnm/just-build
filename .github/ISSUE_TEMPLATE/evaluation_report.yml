@@ -1,0 +1,66 @@
+name: Evaluation report
+description: Share an actual skill run with reproducible outcomes and limitations
+body:
+  - type: markdown
+    attributes:
+      value: Use fictional or redacted evidence. Distinguish actual agent work from synthetic fixtures; disclose failures and assistance.
+  - type: input
+    id: environment
+    attributes:
+      label: Revision, host, OS, Python and available tools
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Entry path
+      options:
+        - Auto idea selection
+        - Guided idea selection
+        - Named project
+        - Continuation
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Authorized task and constraints
+      description: Include the public goal, available resources and explicitly untested capabilities.
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Actual outcomes
+      description: Include public commands or journeys, exit/results, tracker status and unresolved failures. A no-build outcome can be valid.
+    validations:
+      required: true
+  - type: textarea
+    id: assistance
+    attributes:
+      label: Assistance and reviewer provenance
+      description: Record maintainer intervention, retries, reused identities, simulated users and single-agent fallbacks. Do not present agent simulation as human research.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Redacted evidence and reproduction
+      description: Prefer a small fictional fixture; never paste raw private ledgers or secrets.
+  - type: dropdown
+    id: completion
+    attributes:
+      label: Final tracked outcome
+      options:
+        - Complete tracked handoff
+        - Runnable implementation with incomplete workflow
+        - Bounded experiment
+        - No-build decision
+        - Blocked or failed
+    validations:
+      required: true
+  - type: textarea
+    id: time_usage
+    attributes:
+      label: Elapsed time and measured model usage
+      description: Include input, cached-input and output counters, their source and coverage if available. Use unknown for missing values; do not paste private transcripts or infer billing cost.

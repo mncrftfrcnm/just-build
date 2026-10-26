@@ -1,0 +1,645 @@
+{
+  "schema_version": 1,
+  "captured_at_utc": "2026-10-25T12:32:46.836825+00:00",
+  "last_record_at_utc": "2026-10-25T12:32:45.587Z",
+  "measurement": "Observed local per-response token_usage_record counters; no text-token estimation",
+  "scope": "This project development chat and explicitly spawned descendant agents whose local usage records were available",
+  "coverage": "Observed lower bound, not an invoice or a complete account total; excludes unrecorded/deleted sessions, platform supervision and independent native CLI sessions",
+  "method": "Find descendant relationships in session headers; include each owner thread once; reject conflicting response duplicates; exclude inherited fork records; sum usage, never cumulative snapshots",
+  "cache_semantics": "Cached input is a subset of input; reasoning output is a subset of output. Total = input + output. Do not add the subset columns again.",
+  "main_chat": {
+    "input_tokens": 82406933,
+    "cached_input_tokens": 81093760,
+    "output_tokens": 432730,
+    "reasoning_output_tokens": 168066,
+    "total_tokens": 82839663,
+    "uncached_input_tokens": 1313173,
+    "response_records": 493
+  },
+  "development_with_recorded_descendants": {
+    "input_tokens": 145686086,
+    "cached_input_tokens": 142374784,
+    "output_tokens": 849401,
+    "reasoning_output_tokens": 289509,
+    "total_tokens": 146535487,
+    "uncached_input_tokens": 3311302,
+    "response_records": 1384
+  },
+  "earlier_builder_observations": [
+    {
+      "trial": "CSV Preflight Auto builder and its descendant agents",
+      "coverage": "Partial build accounting: excludes maintainer/root interventions and separately coordinated reviewers",
+      "input_tokens": 10704447,
+      "cached_input_tokens": 10536192,
+      "output_tokens": 47805,
+      "reasoning_output_tokens": 10290,
+      "total_tokens": 10752252,
+      "uncached_input_tokens": 168255,
+      "response_records": 118
+    },
+    {
+      "trial": "CSV Intake Check named builder and its descendant agents",
+      "coverage": "Partial build accounting: excludes maintainer/root interventions and separately coordinated reviewers",
+      "input_tokens": 5788200,
+      "cached_input_tokens": 5724672,
+      "output_tokens": 21375,
+      "reasoning_output_tokens": 4336,
+      "total_tokens": 5809575,
+      "uncached_input_tokens": 63528,
+      "response_records": 65
+    }
+  ],
+  "related_threads": 36,
+  "threads_without_owned_usage_records": 0,
+  "excluded_inherited_records": 0,
+  "excluded_duplicate_records": 0,
+  "incomplete_trailing_lines_omitted": 0,
+  "roles": [
+    {
+      "role": "maintainer",
+      "input_tokens": 82406933,
+      "cached_input_tokens": 81093760,
+      "output_tokens": 432730,
+      "reasoning_output_tokens": 168066,
+      "total_tokens": 82839663,
+      "uncached_input_tokens": 1313173,
+      "response_records": 493
+    },
+    {
+      "role": "/root/bind_selected_concept",
+      "input_tokens": 788781,
+      "cached_input_tokens": 745216,
+      "output_tokens": 8577,
+      "reasoning_output_tokens": 2753,
+      "total_tokens": 797358,
+      "uncached_input_tokens": 43565,
+      "response_records": 14
+    },
+    {
+      "role": "/root/bounded_native_trial",
+      "input_tokens": 739316,
+      "cached_input_tokens": 716032,
+      "output_tokens": 6828,
+      "reasoning_output_tokens": 2618,
+      "total_tokens": 746144,
+      "uncached_input_tokens": 23284,
+      "response_records": 17
+    },
+    {
+      "role": "/root/contract_assertions",
+      "input_tokens": 1198996,
+      "cached_input_tokens": 1173248,
+      "output_tokens": 12825,
+      "reasoning_output_tokens": 3105,
+      "total_tokens": 1211821,
+      "uncached_input_tokens": 25748,
+      "response_records": 20
+    },
+    {
+      "role": "/root/core_correctness",
+      "input_tokens": 5125387,
+      "cached_input_tokens": 4947200,
+      "output_tokens": 17990,
+      "reasoning_output_tokens": 5453,
+      "total_tokens": 5143377,
+      "uncached_input_tokens": 178187,
+      "response_records": 50
+    },
+    {
+      "role": "/root/core_diagnostics",
+      "input_tokens": 3695297,
+      "cached_input_tokens": 3565056,
+      "output_tokens": 28762,
+      "reasoning_output_tokens": 9253,
+      "total_tokens": 3724059,
+      "uncached_input_tokens": 130241,
+      "response_records": 40
+    },
+    {
+      "role": "/root/fresh_assessment",
+      "input_tokens": 5972869,
+      "cached_input_tokens": 5715328,
+      "output_tokens": 28555,
+      "reasoning_output_tokens": 7653,
+      "total_tokens": 6001424,
+      "uncached_input_tokens": 257541,
+      "response_records": 50
+    },
+    {
+      "role": "/root/fresh_json_trial",
+      "input_tokens": 567862,
+      "cached_input_tokens": 543232,
+      "output_tokens": 7172,
+      "reasoning_output_tokens": 1803,
+      "total_tokens": 575034,
+      "uncached_input_tokens": 24630,
+      "response_records": 16
+    },
+    {
+      "role": "/root/github_ci",
+      "input_tokens": 1700292,
+      "cached_input_tokens": 1631232,
+      "output_tokens": 18238,
+      "reasoning_output_tokens": 4970,
+      "total_tokens": 1718530,
+      "uncached_input_tokens": 69060,
+      "response_records": 28
+    },
+    {
+      "role": "/root/host_sync",
+      "input_tokens": 978122,
+      "cached_input_tokens": 963840,
+      "output_tokens": 15457,
+      "reasoning_output_tokens": 4962,
+      "total_tokens": 993579,
+      "uncached_input_tokens": 14282,
+      "response_records": 19
+    },
+    {
+      "role": "/root/infra_security_review",
+      "input_tokens": 1631871,
+      "cached_input_tokens": 1592832,
+      "output_tokens": 8788,
+      "reasoning_output_tokens": 4360,
+      "total_tokens": 1640659,
+      "uncached_input_tokens": 39039,
+      "response_records": 28
+    },
+    {
+      "role": "/root/name_review",
+      "input_tokens": 937071,
+      "cached_input_tokens": 843264,
+      "output_tokens": 3659,
+      "reasoning_output_tokens": 1635,
+      "total_tokens": 940730,
+      "uncached_input_tokens": 93807,
+      "response_records": 14
+    },
+    {
+      "role": "/root/novice_retest",
+      "input_tokens": 257170,
+      "cached_input_tokens": 250112,
+      "output_tokens": 4826,
+      "reasoning_output_tokens": 408,
+      "total_tokens": 261996,
+      "uncached_input_tokens": 7058,
+      "response_records": 8
+    },
+    {
+      "role": "/root/novice_trial",
+      "input_tokens": 282072,
+      "cached_input_tokens": 277376,
+      "output_tokens": 3695,
+      "reasoning_output_tokens": 657,
+      "total_tokens": 285767,
+      "uncached_input_tokens": 4696,
+      "response_records": 9
+    },
+    {
+      "role": "/root/professional_assessment",
+      "input_tokens": 3683093,
+      "cached_input_tokens": 3529472,
+      "output_tokens": 12485,
+      "reasoning_output_tokens": 3818,
+      "total_tokens": 3695578,
+      "uncached_input_tokens": 153621,
+      "response_records": 44
+    },
+    {
+      "role": "/root/publication_assessment",
+      "input_tokens": 1229281,
+      "cached_input_tokens": 1152896,
+      "output_tokens": 4949,
+      "reasoning_output_tokens": 900,
+      "total_tokens": 1234230,
+      "uncached_input_tokens": 76385,
+      "response_records": 17
+    },
+    {
+      "role": "/root/publication_polish",
+      "input_tokens": 888923,
+      "cached_input_tokens": 830720,
+      "output_tokens": 8681,
+      "reasoning_output_tokens": 2795,
+      "total_tokens": 897604,
+      "uncached_input_tokens": 58203,
+      "response_records": 16
+    },
+    {
+      "role": "/root/release_followthrough",
+      "input_tokens": 616318,
+      "cached_input_tokens": 587776,
+      "output_tokens": 4801,
+      "reasoning_output_tokens": 796,
+      "total_tokens": 621119,
+      "uncached_input_tokens": 28542,
+      "response_records": 13
+    },
+    {
+      "role": "/root/release_verification",
+      "input_tokens": 1773821,
+      "cached_input_tokens": 1746560,
+      "output_tokens": 15847,
+      "reasoning_output_tokens": 6711,
+      "total_tokens": 1789668,
+      "uncached_input_tokens": 27261,
+      "response_records": 33
+    },
+    {
+      "role": "/root/research_step_review",
+      "input_tokens": 405957,
+      "cached_input_tokens": 379136,
+      "output_tokens": 2185,
+      "reasoning_output_tokens": 605,
+      "total_tokens": 408142,
+      "uncached_input_tokens": 26821,
+      "response_records": 9
+    },
+    {
+      "role": "/root/review_working_controls",
+      "input_tokens": 1007588,
+      "cached_input_tokens": 955008,
+      "output_tokens": 2753,
+      "reasoning_output_tokens": 857,
+      "total_tokens": 1010341,
+      "uncached_input_tokens": 52580,
+      "response_records": 17
+    },
+    {
+      "role": "/root/run_fresh_auto",
+      "input_tokens": 7108703,
+      "cached_input_tokens": 7018240,
+      "output_tokens": 27954,
+      "reasoning_output_tokens": 6656,
+      "total_tokens": 7136657,
+      "uncached_input_tokens": 90463,
+      "response_records": 70
+    },
+    {
+      "role": "/root/run_fresh_auto/blind_validation",
+      "input_tokens": 3595744,
+      "cached_input_tokens": 3517952,
+      "output_tokens": 19851,
+      "reasoning_output_tokens": 3634,
+      "total_tokens": 3615595,
+      "uncached_input_tokens": 77792,
+      "response_records": 48
+    },
+    {
+      "role": "/root/run_named_project",
+      "input_tokens": 5788200,
+      "cached_input_tokens": 5724672,
+      "output_tokens": 21375,
+      "reasoning_output_tokens": 4336,
+      "total_tokens": 5809575,
+      "uncached_input_tokens": 63528,
+      "response_records": 65
+    },
+    {
+      "role": "/root/sync_review",
+      "input_tokens": 1329905,
+      "cached_input_tokens": 1284352,
+      "output_tokens": 8232,
+      "reasoning_output_tokens": 3041,
+      "total_tokens": 1338137,
+      "uncached_input_tokens": 45553,
+      "response_records": 29
+    },
+    {
+      "role": "/root/track_delivered_artifacts",
+      "input_tokens": 1636244,
+      "cached_input_tokens": 1586176,
+      "output_tokens": 14495,
+      "reasoning_output_tokens": 4451,
+      "total_tokens": 1650739,
+      "uncached_input_tokens": 50068,
+      "response_records": 24
+    },
+    {
+      "role": "/root/trial_advocate",
+      "input_tokens": 501298,
+      "cached_input_tokens": 473088,
+      "output_tokens": 6364,
+      "reasoning_output_tokens": 1755,
+      "total_tokens": 507662,
+      "uncached_input_tokens": 28210,
+      "response_records": 14
+    },
+    {
+      "role": "/root/trial_novice",
+      "input_tokens": 259945,
+      "cached_input_tokens": 241664,
+      "output_tokens": 5002,
+      "reasoning_output_tokens": 1804,
+      "total_tokens": 264947,
+      "uncached_input_tokens": 18281,
+      "response_records": 8
+    },
+    {
+      "role": "/root/trial_novice_02",
+      "input_tokens": 350630,
+      "cached_input_tokens": 340480,
+      "output_tokens": 3743,
+      "reasoning_output_tokens": 710,
+      "total_tokens": 354373,
+      "uncached_input_tokens": 10150,
+      "response_records": 11
+    },
+    {
+      "role": "/root/trial_polish",
+      "input_tokens": 726065,
+      "cached_input_tokens": 691840,
+      "output_tokens": 10723,
+      "reasoning_output_tokens": 3094,
+      "total_tokens": 736788,
+      "uncached_input_tokens": 34225,
+      "response_records": 17
+    },
+    {
+      "role": "/root/trial_quality",
+      "input_tokens": 1053175,
+      "cached_input_tokens": 1028352,
+      "output_tokens": 12743,
+      "reasoning_output_tokens": 3239,
+      "total_tokens": 1065918,
+      "uncached_input_tokens": 24823,
+      "response_records": 23
+    },
+    {
+      "role": "/root/trial_security",
+      "input_tokens": 1210787,
+      "cached_input_tokens": 1164672,
+      "output_tokens": 11353,
+      "reasoning_output_tokens": 3658,
+      "total_tokens": 1222140,
+      "uncached_input_tokens": 46115,
+      "response_records": 22
+    },
+    {
+      "role": "/root/usability_advocate",
+      "input_tokens": 682496,
+      "cached_input_tokens": 659968,
+      "output_tokens": 9140,
+      "reasoning_output_tokens": 1909,
+      "total_tokens": 691636,
+      "uncached_input_tokens": 22528,
+      "response_records": 17
+    },
+    {
+      "role": "/root/usability_gate",
+      "input_tokens": 3442564,
+      "cached_input_tokens": 3384064,
+      "output_tokens": 28095,
+      "reasoning_output_tokens": 9866,
+      "total_tokens": 3470659,
+      "uncached_input_tokens": 58500,
+      "response_records": 45
+    },
+    {
+      "role": "/root/usability_guard_review",
+      "input_tokens": 1558916,
+      "cached_input_tokens": 1509248,
+      "output_tokens": 8012,
+      "reasoning_output_tokens": 3869,
+      "total_tokens": 1566928,
+      "uncached_input_tokens": 49668,
+      "response_records": 24
+    },
+    {
+      "role": "/root/usage_accounting",
+      "input_tokens": 554394,
+      "cached_input_tokens": 510720,
+      "output_tokens": 12516,
+      "reasoning_output_tokens": 3309,
+      "total_tokens": 566910,
+      "uncached_input_tokens": 43674,
+      "response_records": 12
+    }
+  ],
+  "source_snapshots": [
+    {
+      "role": "maintainer",
+      "sha256": "73d32d6c47d26e7e5336159bb8ab7d4e1a317f91bae7beeeb4991559e251079b",
+      "snapshot_bytes": 5001157,
+      "unique_owned_records_added": 130
+    },
+    {
+      "role": "/root/fresh_assessment",
+      "sha256": "337a7636cc2edc541ee2599bc1ee162fbd956e21caf5a1e166815a5a488deaa5",
+      "snapshot_bytes": 1733157,
+      "unique_owned_records_added": 50
+    },
+    {
+      "role": "maintainer",
+      "sha256": "746db013174cc647784d4e59689ba84602eade1e91efbf51c9f33cba72f51ed5",
+      "snapshot_bytes": 10604071,
+      "unique_owned_records_added": 363
+    },
+    {
+      "role": "/root/research_step_review",
+      "sha256": "3816afb05a91a844dc7352e81d1ff2f85022eff60a3a360cb8fecfc8cbc033a7",
+      "snapshot_bytes": 518221,
+      "unique_owned_records_added": 9
+    },
+    {
+      "role": "/root/bind_selected_concept",
+      "sha256": "9ecb6b2356d3fa1b8cbc2d3b2d86a667184fcf96dad6b10b8ecf19e2f487424b",
+      "snapshot_bytes": 641646,
+      "unique_owned_records_added": 14
+    },
+    {
+      "role": "/root/track_delivered_artifacts",
+      "sha256": "2547906861462eea962ae0146e679979bfeb2a6d66b5a1ea6159fdc3c8d74a23",
+      "snapshot_bytes": 813790,
+      "unique_owned_records_added": 24
+    },
+    {
+      "role": "/root/review_working_controls",
+      "sha256": "9138df909e1ea461ced38d6a86433da4ede486f047ab592f8bd4f213bc6eb256",
+      "snapshot_bytes": 813356,
+      "unique_owned_records_added": 17
+    },
+    {
+      "role": "/root/run_fresh_auto",
+      "sha256": "9ba5c04ec60bb405403e4441849b6385535cc1d96aa35415cef30b43c3a1a257",
+      "snapshot_bytes": 1548392,
+      "unique_owned_records_added": 70
+    },
+    {
+      "role": "/root/run_fresh_auto/blind_validation",
+      "sha256": "07d0957b64c5592b68e267f7e135d3339997a06371e6cae1fbe33a6923caa613",
+      "snapshot_bytes": 1075778,
+      "unique_owned_records_added": 48
+    },
+    {
+      "role": "/root/run_named_project",
+      "sha256": "4ef5b2889b806640a2caff0779a949b4ff7de4cbd4f9f8a323093caf8b285fc3",
+      "snapshot_bytes": 1193002,
+      "unique_owned_records_added": 65
+    },
+    {
+      "role": "/root/publication_assessment",
+      "sha256": "bc4d25dd791b1924afcb2a3340146e9e8bf78ff9a5b5ac48fc653ec153b11021",
+      "snapshot_bytes": 963084,
+      "unique_owned_records_added": 17
+    },
+    {
+      "role": "/root/usability_gate",
+      "sha256": "36a63dda301aa6386c86a7c2e8a2c382532d84bbb7c76cdaafa9c77ff5d1ca90",
+      "snapshot_bytes": 1199864,
+      "unique_owned_records_added": 45
+    },
+    {
+      "role": "/root/novice_trial",
+      "sha256": "ce24d884cde513de95366787e03a3d0c55924b3d59797bd5b9df3680da0c90a7",
+      "snapshot_bytes": 266248,
+      "unique_owned_records_added": 9
+    },
+    {
+      "role": "/root/usability_advocate",
+      "sha256": "42076c8ec26e1e749a4a560b12c6c15f85f0da798cd081ac1f5a0a99aab61464",
+      "snapshot_bytes": 459402,
+      "unique_owned_records_added": 17
+    },
+    {
+      "role": "/root/usability_guard_review",
+      "sha256": "c031e7a71cc92d1764f8ae4169a1c388827917fa02060119162b2aeefdbe24cd",
+      "snapshot_bytes": 862217,
+      "unique_owned_records_added": 24
+    },
+    {
+      "role": "/root/novice_retest",
+      "sha256": "678600547624b36c89dfbfce7f3bc78f7f1fe1b0450f38114f84de383f6a10fd",
+      "snapshot_bytes": 299171,
+      "unique_owned_records_added": 8
+    },
+    {
+      "role": "/root/release_verification",
+      "sha256": "84d811e1d2ae2b7f38e8e0a80dfbd59aba7d47bd0480f0c48097670e89d70f63",
+      "snapshot_bytes": 767020,
+      "unique_owned_records_added": 33
+    },
+    {
+      "role": "/root/github_ci",
+      "sha256": "6f63955ea6938496071b470d6a69d8104de9f4ca3f24313746aa1c0f49d60797",
+      "snapshot_bytes": 822952,
+      "unique_owned_records_added": 28
+    },
+    {
+      "role": "/root/host_sync",
+      "sha256": "fa3466258776ec3e4b6fcf215726c6a44e0b6fe8dcd9a5c8fdcecd2f4e88005c",
+      "snapshot_bytes": 668240,
+      "unique_owned_records_added": 19
+    },
+    {
+      "role": "/root/infra_security_review",
+      "sha256": "9d160356dc0af49dfb61e39ae6713f23f4643948f2a12d0c4e9ea5d2e91bff83",
+      "snapshot_bytes": 671423,
+      "unique_owned_records_added": 28
+    },
+    {
+      "role": "/root/sync_review",
+      "sha256": "9ec7a90f913c159972ed50405e7cbe7b03d15eecd7092e74f6bad9b4cc1f4acd",
+      "snapshot_bytes": 564826,
+      "unique_owned_records_added": 29
+    },
+    {
+      "role": "/root/core_diagnostics",
+      "sha256": "8bece23a8a8cd0dbf21ff050b8edcf1d8d01c438e9b8f1e9d7202eafaebcd5b1",
+      "snapshot_bytes": 1347629,
+      "unique_owned_records_added": 40
+    },
+    {
+      "role": "/root/contract_assertions",
+      "sha256": "4015d9fe15426f03395c1853f3b713886285c3aacdd5e5851979a56697eb8391",
+      "snapshot_bytes": 745010,
+      "unique_owned_records_added": 20
+    },
+    {
+      "role": "/root/core_correctness",
+      "sha256": "1aa6ad09c2c92321ae1770d652f9337dbe47a894d0b4b2fdd18e01f591ad4a30",
+      "snapshot_bytes": 1500096,
+      "unique_owned_records_added": 50
+    },
+    {
+      "role": "/root/fresh_json_trial",
+      "sha256": "cc9c2aeca040f1ccfc35b08e3dea024b2a4d1ffff45f507bce4000057932d427",
+      "snapshot_bytes": 359759,
+      "unique_owned_records_added": 16
+    },
+    {
+      "role": "/root/name_review",
+      "sha256": "b35883cb49d8171f8c134d716268929d5c8308d2be02a6896040585289399970",
+      "snapshot_bytes": 598307,
+      "unique_owned_records_added": 14
+    },
+    {
+      "role": "/root/publication_polish",
+      "sha256": "893e9b476a59f5d54512df15d8df198737785848037f0c0ae04eb97f03762612",
+      "snapshot_bytes": 777818,
+      "unique_owned_records_added": 16
+    },
+    {
+      "role": "/root/trial_quality",
+      "sha256": "8c900c453763b91285a8ebba5451686b468e6b8e071562cd696534605f8eb5a4",
+      "snapshot_bytes": 618258,
+      "unique_owned_records_added": 23
+    },
+    {
+      "role": "/root/professional_assessment",
+      "sha256": "32caea42e58881efb41f51671f420d5111839bded3552382120a8a7966c1ccb1",
+      "snapshot_bytes": 1373957,
+      "unique_owned_records_added": 44
+    },
+    {
+      "role": "/root/trial_novice",
+      "sha256": "368e96d4fd91d41543998e66b846cf5cb0fa60f5c0c0cea6c385e14b723aa8f0",
+      "snapshot_bytes": 307153,
+      "unique_owned_records_added": 8
+    },
+    {
+      "role": "/root/trial_advocate",
+      "sha256": "9f32751eb1e8506872f3a76329397eed0542672a2a1caaede4f732837cdb546b",
+      "snapshot_bytes": 377906,
+      "unique_owned_records_added": 14
+    },
+    {
+      "role": "/root/trial_polish",
+      "sha256": "3773b39d03f9d54504d131110da4e701270b0b2c058b7394fe4232fcea18865b",
+      "snapshot_bytes": 524246,
+      "unique_owned_records_added": 17
+    },
+    {
+      "role": "/root/trial_security",
+      "sha256": "0e035790de129370d54bcab3c4f232613adf9aea798c3f0c780a88c441eb2ce6",
+      "snapshot_bytes": 634841,
+      "unique_owned_records_added": 22
+    },
+    {
+      "role": "/root/trial_novice_02",
+      "sha256": "ab68a5815c3800b8b20fdfa4eb8d9bf941b3bd98319d017948661b843a5a18e3",
+      "snapshot_bytes": 285987,
+      "unique_owned_records_added": 11
+    },
+    {
+      "role": "/root/usage_accounting",
+      "sha256": "05e9226e18ebdd475e713e9afad8f668153b6092e773b93a52b615c1dc9bc63e",
+      "snapshot_bytes": 638909,
+      "unique_owned_records_added": 12
+    },
+    {
+      "role": "/root/bounded_native_trial",
+      "sha256": "0252db1ad7f4d3d19ecfbc1394fd08cb639fec4f39bcac929b6d9b3560e52d7f",
+      "snapshot_bytes": 480667,
+      "unique_owned_records_added": 17
+    },
+    {
+      "role": "/root/release_followthrough",
+      "sha256": "8106ce878518da91921361a4a9973e0cf69a1c125c32ec2c04e9d1b06bf82206",
+      "snapshot_bytes": 545281,
+      "unique_owned_records_added": 13
+    }
+  ],
+  "privacy": "No source transcript, personal path, response/session identifier or credentials included. Source hashes refer to private local snapshots.",
+  "interpretation": "Long iterative development repeats cached context. These development counts are not the cost of a normal single Just Build invocation. Deterministic Python tests make no model requests."
+}

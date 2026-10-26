@@ -1,0 +1,69 @@
+{
+  "recorded_date": "2026-10-24",
+  "environment": "Codex app agent, Windows, Python 3.13.5",
+  "mode": "auto-selection",
+  "tracker_snapshot": {
+    "run_id": "d1d55daa3ea9",
+    "stages": {
+      "research": "done",
+      "plan": "done",
+      "implement": "done",
+      "verify": "done",
+      "quality": "done",
+      "polish": "done",
+      "final-verify": "done",
+      "handoff": "done"
+    },
+    "verification_ready": true,
+    "final_verification_ready": true,
+    "test_executions": 16,
+    "reviews": {
+      "quality": "pass",
+      "polish": "pass",
+      "security": "pass"
+    },
+    "security_ready": true,
+    "complete": true,
+    "research_entries": 5
+  },
+  "original_source_fingerprint": "e98770535aa8ad70c0a64f648a6f19e06aabe01310d3e111a9edb283a68b0b9e",
+  "unchanged_files": [
+    {
+      "path": "app.py",
+      "sha256": "a86947e0c3c3f3b91e55cc42332eeadd3d11d6fe7ea906bfe6d7c1a254b97935"
+    },
+    {
+      "path": "PROJECT_BRIEF.md",
+      "sha256": "ee966214f225fc155206f086875061def9329cf0b4e43fe302fb8df1c3d70b50"
+    },
+    {
+      "path": "smoke.py",
+      "sha256": "60de08eb4444f50b6b2b641f366c45730fc6d8d333e6ba681d7b35f64070a593"
+    },
+    {
+      "path": "tests/test_app.py",
+      "sha256": "5e83c958824c49d003a5877ca6bc2387f7e2a3a6f1ef7f2033c7d576d81c5cf5"
+    },
+    {
+      "path": "tests/test_errors.py",
+      "sha256": "e7d6e33da123bda0ba6d9a001ba825bd91c72aaf5ba13a21dc26ec01954a5549"
+    },
+    {
+      "path": "tests/test_experience.py",
+      "sha256": "3d47a690169071d75d8c99fb1937917aeb24f83d45e2c1ef85e5bc3ea05a0727"
+    },
+    {
+      "path": "tests/test_header.py",
+      "sha256": "fd024e37c4b3c51d391ac9c57a17d7ea44fc40cf85653e6cfbc522ff4acc9c79"
+    },
+    {
+      "path": "examples/bad.csv",
+      "sha256": "8ddb6d249faa4c67899b81a7ece03013a7a661e6e8d8144d483ad494bb67ae41"
+    },
+    {
+      "path": "examples/good.csv",
+      "sha256": "98aefc5cf727293e1011507d1464bb1613867468618f66f2bd6754ce9ae641e0"
+    }
+  ],
+  "scope": "Sanitized snapshot of an actual assisted trial, not a replayable ledger or independent attestation. See GENERATION.md for interventions and review provenance."
+}

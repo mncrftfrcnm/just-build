@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "fixture_only": true,
+  "reviewer_mode": "single-agent-fallback",
+  "reviewer_id": "illustrative-advocate-role",
+  "simulation": true,
+  "assistance": "Illustrative schema only, not an actual review or repair.",
+  "verdict": "pass",
+  "novice_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "summary": "Illustrative minor friction disposition; use a captured actual novice digest.",
+  "dispositions": [
+    {"difficulty_id": "report-rerun", "resolution": "accepted", "evidence": "Illustrative acceptance: existing-file protection remains and recovery is explained"}
+  ],
+  "changes": [],
+  "preserved_acceptance": true
+}

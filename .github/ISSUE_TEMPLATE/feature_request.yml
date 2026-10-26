@@ -1,0 +1,27 @@
+name: Feature request
+description: Propose a concrete improvement to the skill or repository tools
+body:
+  - type: markdown
+    attributes:
+      value: Describe the user outcome and a small example. Do not include private project data, credentials or chat histories.
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+      description: What are you trying to accomplish, and where does the current behavior get in the way?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Suggested behavior
+      description: Include a concrete before/after example and any simpler alternatives.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: How to verify it
+      description: What observable result would demonstrate that this solves the problem?
+    validations:
+      required: true

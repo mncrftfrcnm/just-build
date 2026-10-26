@@ -1,0 +1,206 @@
+{
+  "recorded_date": "2026-10-24",
+  "environment": "Codex app agents, Windows, Python 3.13.5",
+  "summary": {
+    "complete": true,
+    "usability_ready": true,
+    "security_ready": true,
+    "rounds": 2,
+    "test_executions": 12,
+    "final_source_fingerprint": "34caf66fdb84ee3f3065b79f7809ae4472eb62860cbce02a762bd128e5f15549",
+    "contract_sha256": "8f22c9cdc943b0764fabb7c26b1fa73bfa25ee3e3348aa4e5983990f05dce169",
+    "original_contract_preserved": true,
+    "reviewer_provenance": {
+      "initial_novice": "actual subagent",
+      "advocate": "actual separate subagent",
+      "fresh_novice": "actual fresh unprimed subagent",
+      "quality_polish_security": "parent sequential single-agent-fallback"
+    },
+    "app_sha256": "a86947e0c3c3f3b91e55cc42332eeadd3d11d6fe7ea906bfe6d7c1a254b97935",
+    "scope": "Actual assisted local continuation with simulated user observations; not human research or broad autonomous evidence."
+  },
+  "rounds": [
+    {
+      "novice": {
+        "version": 1,
+        "reviewer_mode": "subagent",
+        "reviewer_id": "/root/novice_trial",
+        "simulation": true,
+        "assistance": "Evaluator prepared disposable copy and captured exit codes. Public README/help only; no source/test inspection or author hints. Actual commands recorded in OBSERVATIONS.md.",
+        "verdict": "pass",
+        "goal": "Check bad CSV, understand result, check good CSV, save report and repeat/recover",
+        "entrypoint": "README.md quick start and python -B app.py --help",
+        "steps": [
+          {
+            "id": "help",
+            "status": "pass",
+            "action": "python -B app.py --help",
+            "expected": "Find input/report options",
+            "observed": "Help displayed options and exit meanings; exit 0"
+          },
+          {
+            "id": "bad-input",
+            "status": "pass",
+            "action": "python -B app.py examples/bad.csv --json",
+            "expected": "Reported wrong-width validation failure",
+            "observed": "valid:false, row-width, expected:2 actual:3; exit 1"
+          },
+          {
+            "id": "save-report",
+            "status": "pass",
+            "action": "python -B app.py examples/good.csv --report report.json",
+            "expected": "Valid result and new JSON report",
+            "observed": "PASS:2 rows,2 columns,0 issues; exit 0; report valid:true"
+          },
+          {
+            "id": "repeat",
+            "status": "pass",
+            "action": "Repeat exact report.json command",
+            "expected": "Existing path refused as documented",
+            "observed": "Report already exists; choose a new --report path; exit 2"
+          },
+          {
+            "id": "recover",
+            "status": "pass",
+            "action": "Use --report report-2.json",
+            "expected": "Save a fresh report",
+            "observed": "PASS and exit 0; matching valid report, no additional help"
+          }
+        ],
+        "difficulties": [
+          {
+            "id": "n01",
+            "step_id": "repeat",
+            "severity": "minor",
+            "issue": "Returning use requires changing report filename; anticipated, documented extra step, not a validation defect",
+            "evidence": "Literal repeat exited 2; changing only filename to report-2.json recovered immediately without hints"
+          }
+        ],
+        "at": "2026-10-24T15:26:33+00:00",
+        "source_fingerprint": "03cb285afea899eb0cfe148082dfd548db7cfa3783956684ee5915969a3bdbbf",
+        "acceptance_sha256": "9376191a90551d59ee7efb58b139e8c02e5e35222c49ece606db2d8a3f5e89a3",
+        "sha256": "f0ab4e48252c7de85fd4cc8663b199c7460273c49bd06df2dc8562aa93942836"
+      },
+      "advocate": {
+        "version": 1,
+        "reviewer_mode": "subagent",
+        "reviewer_id": "/root/usability_advocate",
+        "simulation": true,
+        "assistance": "Actual separate advocate read novice observations, public docs, app/tests; seven public checks on disposable copy. Parent normalized factual report to tracker schema; fresh novice retest pending.",
+        "verdict": "needs-work",
+        "novice_sha256": "f0ab4e48252c7de85fd4cc8663b199c7460273c49bd06df2dc8562aa93942836",
+        "summary": "Added one copyable returning-use command. Original filename change remains an intentional safeguard; intermediate record awaits current-source novice retest.",
+        "dispositions": [
+          {
+            "difficulty_id": "n01",
+            "resolution": "accepted",
+            "evidence": "Retain exclusive no-overwrite protection; README now shows unused report-2.json. Actual repeated-path exit 2 preserved report hash; new command exited 0 with equivalent JSON."
+          }
+        ],
+        "preserved_acceptance": true,
+        "changes": [
+          "README adds copyable returning-use command with an unused filename",
+          "GENERATION identifies later documentation-only simulated usability pass; no measured gain"
+        ],
+        "at": "2026-10-24T15:28:10+00:00",
+        "source_fingerprint": "34caf66fdb84ee3f3065b79f7809ae4472eb62860cbce02a762bd128e5f15549",
+        "acceptance_sha256": "9376191a90551d59ee7efb58b139e8c02e5e35222c49ece606db2d8a3f5e89a3"
+      }
+    },
+    {
+      "novice": {
+        "version": 1,
+        "reviewer_mode": "subagent",
+        "reviewer_id": "/root/novice_retest",
+        "simulation": true,
+        "assistance": "Agent simulation, not a human study. Used public README and actual CLI help only; task supplied project and sandbox paths. No human/product assistance. Recovered a setup-only tool working-directory error before CLI use.",
+        "verdict": "pass",
+        "goal": "Check the supplied bad CSV, understand its result, check the good CSV and save a report, then return for another check/report using public instructions. Recover naturally if a credible mistake occurs.",
+        "entrypoint": "Public README.md in work/usability-release/examples/csv-preflight; all CLI use in disposable work/novice-retest-01/project.",
+        "steps": [
+          {
+            "id": "readme",
+            "status": "pass",
+            "action": "Read the public README.",
+            "expected": "Find commands for checking samples, saving reports, returning, and interpreting exit codes.",
+            "observed": "README provided bad/good commands, exit meanings, row numbering and a repeat command with report-2.json."
+          },
+          {
+            "id": "prepare",
+            "status": "pass",
+            "action": "Create a disposable project copy and workspace TEMP/TMP.",
+            "expected": "Create copy and launch CLI help.",
+            "observed": "Initial tool launch failed because its working directory did not yet exist. Retried setup from existing workspace; exit 0. Copy ready."
+          },
+          {
+            "id": "help",
+            "status": "pass",
+            "action": "Run python -B app.py --help.",
+            "expected": "Understand input, JSON, report flags, and exit codes.",
+            "observed": "Exit 0. Help explained read-only audit, fresh report paths, JSON option, and exits 0/1/2."
+          },
+          {
+            "id": "bad",
+            "status": "pass",
+            "action": "Run python -B app.py examples/bad.csv --json and interpret output.",
+            "expected": "Find row-width issue and exit 1.",
+            "observed": "Exit 1, valid false, one row-width issue: record 2 ending on physical line 2 has 3 cells where 2 expected. Understood first data row is uneven."
+          },
+          {
+            "id": "good",
+            "status": "pass",
+            "action": "Run good.csv with --report report.json, then read the saved report.",
+            "expected": "Exit 0 and a saved passing report.",
+            "observed": "Exit 0; PASS: 2 data rows, 2 columns, 0 issues. report.json read successfully with valid true and issue_count 0."
+          },
+          {
+            "id": "return",
+            "status": "pass",
+            "action": "Return and run good.csv with --report report-2.json; read report.",
+            "expected": "Complete another passing check and save a fresh report using README repeat instructions.",
+            "observed": "Exit 0; PASS: 2 data rows, 2 columns, 0 issues. report-2.json read successfully with valid true. No product error arose or was forced."
+          }
+        ],
+        "difficulties": [
+          {
+            "id": "setupdir",
+            "step_id": "prepare",
+            "severity": "minor",
+            "issue": "Setup-only harness mistake: selected the future working directory before creating it. No product difficulty.",
+            "evidence": "Tool rejected process creation: directory name is invalid (os error 267); no CLI process ran. Reran directory creation/copy from existing workspace, exit 0, then help succeeded."
+          }
+        ],
+        "at": "2026-10-24T15:31:40+00:00",
+        "source_fingerprint": "34caf66fdb84ee3f3065b79f7809ae4472eb62860cbce02a762bd128e5f15549",
+        "acceptance_sha256": "9376191a90551d59ee7efb58b139e8c02e5e35222c49ece606db2d8a3f5e89a3",
+        "sha256": "4b051652d8340edb1a73f68750a2f3c3869a140d8e9d68309fdb9dcbdf4590eb"
+      },
+      "advocate": {
+        "version": 1,
+        "reviewer_mode": "subagent",
+        "reviewer_id": "/root/usability_advocate",
+        "simulation": true,
+        "assistance": "Separate advocate agent; read original and fresh simulated novice reports, tracker capture, README/source/tests and prior public-check outputs. No human assistance, installs, network or live user files. Fresh novice read only public instructions/CLI; its setup-only working-directory recovery is disclosed.",
+        "verdict": "pass",
+        "novice_sha256": "4b051652d8340edb1a73f68750a2f3c3869a140d8e9d68309fdb9dcbdf4590eb",
+        "summary": "Fresh simulated retest: all six steps passed with no product difficulty. setupdir recovered before CLI use; no product fix warranted. Original N01 filename choice is consciously accepted as a safeguard and clarified in README; it remains in the historical round with intermediate needs-work requiring retest. Public checks plus this retest are evidence, not human-study proof.",
+        "dispositions": [
+          {
+            "difficulty_id": "setupdir",
+            "resolution": "accepted",
+            "evidence": "Harness selected a not-yet-created directory; no process ran. Novice created the disposable copy from an existing workspace, then all six steps passed. Accept the recovered harness issue; no product fix justified. Tracker capture matches the fresh novice report and records no product difficulty."
+          }
+        ],
+        "preserved_acceptance": true,
+        "changes": [
+          "README adds a copyable returning-use command with another unused report filename; original N01 no-overwrite safeguard is consciously accepted.",
+          "GENERATION records the later documentation-only pass and simulated evidence; no product files were changed after the fresh retest."
+        ],
+        "at": "2026-10-24T15:41:00+00:00",
+        "source_fingerprint": "34caf66fdb84ee3f3065b79f7809ae4472eb62860cbce02a762bd128e5f15549",
+        "acceptance_sha256": "9376191a90551d59ee7efb58b139e8c02e5e35222c49ece606db2d8a3f5e89a3"
+      }
+    }
+  ],
+  "scope": "Sanitized actual assisted continuation. Source fingerprint identifies that working product before repository evaluation notes are packaged; original app/test bytes are retained. Not human-user research or independent attestation."
+}

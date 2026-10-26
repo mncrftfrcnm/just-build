@@ -1,0 +1,31 @@
+# Sequential reviewers — distinct jobs, compact context
+
+Use real subagents when delegation tools exist in the host. Dispatch sequentially: Quality inspects correctness; while Quality is active, profiled builds run the first-time user and separate usability advocate described in `references/novice-usability.md`; Quality then approves the repaired current source; final Polish reads `BRIEF.md`, `REVIEWS.md`, `USABILITY.md` and the actual product. Avoid concurrent edits. `context_packet.py --role quality|advocate|polish|security` provides a bounded evidence index, not a substitute for inspecting the product. Its `novice` role deliberately omits test answers and earlier review verdicts. Without delegation, record honest sequential `single-agent-fallback` roles and disclose the weaker isolation. No simulated pass is human user research.
+
+## 1. Quality evaluator (after initial verify)
+
+Prompt: "Inspect the completed application as a critical tester. Read `PLAN.md`, `CHOSEN_IDEA_RESEARCH.md` when present, the frozen selected concept in `PROJECT_BRIEF.md`, app code, tests, README and initial results. Check that the actual first journey still serves that selected audience/problem and that declared runtime artifacts match the delivered entry path. Exercise the real user journey and at least one error/edge path. Seek high-impact correctness, security, regressions, missing assertions, and broken setup instructions. Fix bounded issues, strengthen tests where justified. Record actual findings/changes and unresolved limitations. Don't rubber-stamp or claim live integrations you didn't exercise. Do not write the final handoff."
+
+`step quality active`; inspect correctness, then run the novice/advocate gate for `usability_profile: novice-v1` before recording the final Quality judgment. Create quality JSON shaped like `examples/quality-review.json`, with exact checks `journey`, `edge-cases`, `test-strength`, `security`, `documentation`; run `review --role quality --file <file>`; only mark `quality done` with a current passing review and, for profiled plans, a current passing usability pair. A `needs-work` review is a blocker until fixes and a new honest record. If source changes after recording, resubmit the review. Open critical/major findings cannot pass.
+
+## 2. Human-polish editor (after quality)
+
+Prompt: "Start from short `BRIEF.md`, `REVIEWS.md` and actual `USABILITY.md` findings when present, then inspect the product. Improve task terminology, states, defaults, errors, help, coherent visual hierarchy or fluent CLI output, keyboard/accessibility and accurate onboarding. Respect observed friction and accepted safeguards. Preserve core behavior, frozen acceptance and scope. Avoid gratuitous animation, fake testimonials, invented user research or unjustified dependencies. Record concrete changes and caveats; edits require fresh novice/advocate and Quality approval before completion."
+
+`step polish active`; create polish JSON shaped like `examples/polish-review.json`, with exact checks `wording`, `usability`, `consistency`, `accessibility`, `handoff`; run `review --role polish --file <file>`; only mark `polish done` with verdict `pass`. A pass requires at least three applicable passing checklist checks; for enhanced quality plans all five quality checks must pass. Do not mark every check N/A. Optional polish N/A requires concrete explanation; required enhanced polish targets must pass.
+
+Review JSON schema: `reviewer_mode: subagent|single-agent-fallback`, `verdict: pass|needs-work`, `summary` (bounded), exact `checks` with values `pass|needs-work|not-applicable`, `findings` (severity critical|major|minor, issue, resolution fixed|accepted|open, evidence), `changes` (short strings). These are reviewer declarations, not independently established code audits. Do not expose secrets in notes. `REVIEWS.md` renders the records. Run Securer after both reviews (`references/securer.md`), then **all planned acceptance labels and smoke again** in final-verify, even if neither claims code changes. If the product changes after that phase completes, `recheck` resets both review records and final verification so the handoff cannot reuse stale approval.
+
+Keep submissions within the actual validator bounds: summary 400 characters; at most 12 findings with issue/evidence 220 characters each; at most 12 changes of 180 characters each; enhanced polish target evidence 240 characters each. Put longer reproductions in a separate note inside the ignored run-state folder and summarize them in JSON. If a submission is rejected, preserve the attempted record and correct its shape without changing the observed verdict or weakening the findings.
+
+## Enhanced quality plan requirements
+
+The quality evaluator must run and assess the separate journey and edge/error assertions from the plan; strengthen them if they only test a placeholder. The polish editor must check every declared `polish_targets` item and record a concrete status/evidence in `target_evidence`, following `examples/enhanced-polish-review.json`. For visual UI projects, assess meaningful hierarchy, readable text, empty/error/loading states, keyboard use and a narrow layout; exercise them with actual browser/visual tools when present, and disclose what couldn't be exercised. For CLIs, polish actual help/error/first-run output. Do not invent a browser screenshot, manual user test, accessibility audit or separate reviewer delegation. Final acceptance and smoke commands rerun after these fixes as before.
+
+## Practical experience polish
+
+For new projects read `references/experience-and-polish.md`. Check actual first-run, returning-user and recovery behavior against bound scenarios. Quality reviewer improves missing test assertions; polish editor tests real copy, meaningful sample data, readable/helpful states and design coherence. Both passes must be followed by fresh journey/edge/smoke/**experience** checks. Old plans without these extra labels stay readable.
+
+## 3. Final Securer
+
+After Quality and Human Polish, read `references/securer.md`: run the passive scanner, audit the actual code, fix findings, refresh earlier reviews after any edits, then record `review --role security`. Public-facing APIs require tested rate/quota control. Active probing is skipped unless there is explicit local-project authorization.

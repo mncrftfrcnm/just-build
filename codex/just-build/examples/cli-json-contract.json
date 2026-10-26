@@ -1,0 +1,121 @@
+{
+  "name": "JSON config inspector typed public behavior",
+  "scenarios": [
+    {
+      "id": "first-run-read-and-recovery",
+      "steps": [
+        {
+          "argv": [
+            "{python}",
+            "{project}/app.py",
+            "sample",
+            "{scratch}/config.json"
+          ],
+          "exit_code": 0,
+          "stdout_json_equals": {
+            "created": true
+          },
+          "file_exists": [
+            "config.json"
+          ]
+        },
+        {
+          "argv": [
+            "{python}",
+            "{project}/app.py",
+            "inspect",
+            "{scratch}/config.json"
+          ],
+          "exit_code": 0,
+          "stdout_json_equals": {
+            "keys": [
+              "enabled",
+              "retries"
+            ],
+            "types": {
+              "enabled": "boolean",
+              "retries": "integer"
+            }
+          },
+          "file_unchanged": [
+            "config.json"
+          ]
+        },
+        {
+          "argv": [
+            "{python}",
+            "{project}/app.py",
+            "inspect",
+            "{scratch}/config.json",
+            "--key",
+            "absent"
+          ],
+          "exit_code": 2,
+          "stdout_json_equals": {
+            "error": "missing-key"
+          },
+          "stderr_contains": [
+            "key does not exist"
+          ],
+          "file_unchanged": [
+            "config.json"
+          ]
+        },
+        {
+          "argv": [
+            "{python}",
+            "{project}/app.py",
+            "inspect",
+            "{scratch}/config.json",
+            "--key",
+            "enabled"
+          ],
+          "exit_code": 0,
+          "stdout_json_equals": {
+            "key": "enabled",
+            "type": "boolean",
+            "value": true
+          },
+          "file_unchanged": [
+            "config.json"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "exclusive-sample-creation",
+      "steps": [
+        {
+          "argv": [
+            "{python}",
+            "{project}/app.py",
+            "sample",
+            "{scratch}/config.json"
+          ],
+          "exit_code": 0,
+          "stdout_json_equals": {
+            "created": true
+          },
+          "file_exists": [
+            "config.json"
+          ]
+        },
+        {
+          "argv": [
+            "{python}",
+            "{project}/app.py",
+            "sample",
+            "{scratch}/config.json"
+          ],
+          "exit_code": 2,
+          "stdout_json_equals": {
+            "error": "exists"
+          },
+          "file_unchanged": [
+            "config.json"
+          ]
+        }
+      ]
+    }
+  ]
+}

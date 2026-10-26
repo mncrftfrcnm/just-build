@@ -1,0 +1,92 @@
+{
+  "quality_profile": "enhanced",
+  "experience_profile": "v08",
+  "experience_checks": [
+    {
+      "scenario": "first-run",
+      "expected": "A fresh local service accepts requests and gives independent callers their quota",
+      "test_label": "experience-first-run",
+      "test_command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_app.py"
+      ]
+    },
+    {
+      "scenario": "invalid-input",
+      "expected": "An invalid route returns an explanatory client error",
+      "test_label": "experience-invalid-input",
+      "test_command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_errors.py"
+      ]
+    }
+  ],
+  "security_profile": "full",
+  "contract_profile": "external-api",
+  "surface": "api",
+  "user_journey": "A local API caller reads a working endpoint and receives predictable errors and enforced rate limits.",
+  "tasks": [
+    {
+      "id": "normal-requests",
+      "focus": "journey",
+      "change": "Handle valid API requests",
+      "acceptance": "An expected request succeeds and returns its payload",
+      "test_label": "journey",
+      "test_command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_app.py"
+      ]
+    },
+    {
+      "id": "invalid-input",
+      "focus": "edge",
+      "change": "Reject invalid requests",
+      "acceptance": "An invalid route returns an explanatory 400",
+      "test_label": "edge",
+      "test_command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_errors.py"
+      ]
+    }
+  ],
+  "smoke_test": "Public server entry has a working documented port option.",
+  "smoke_label": "smoke",
+  "smoke_command": [
+    "python3",
+    "smoke.py"
+  ],
+  "polish_targets": [
+    "first-run",
+    "error-state",
+    "microcopy"
+  ],
+  "out_of_scope": [
+    "External deployment",
+    "Third-party API probing"
+  ],
+  "usability_profile": "novice-v1"
+}

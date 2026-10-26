@@ -1,0 +1,23 @@
+{
+  "trend_status": "unverified",
+  "candidates": [
+    {
+      "name": "Local developer task board",
+      "reason": "Small, feasible, demonstrable without network or third-party credentials.",
+      "scores": {"interest": 4, "trend": 0, "feasibility": 5, "differentiation": 2},
+      "evidence": ["Demo-only interest inference; no live trend claim"]
+    },
+    {
+      "name": "Project handoff generator",
+      "reason": "Good for developer productivity, requires more workflow design.",
+      "scores": {"interest": 4, "trend": 0, "feasibility": 4, "differentiation": 3},
+      "evidence": []
+    },
+    {
+      "name": "Dependency digest",
+      "reason": "Useful but sourcing changes safely requires extra integration work.",
+      "scores": {"interest": 3, "trend": 0, "feasibility": 3, "differentiation": 3},
+      "evidence": []
+    }
+  ]
+}

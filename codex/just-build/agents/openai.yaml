@@ -1,0 +1,6 @@
+interface:
+  display_name: "Just Build"
+  short_description: "Research ideas, continue projects, build, test, and polish."
+  default_prompt: "Use $just-build auto to research and build a software project, or $just-build guided for short choices."
+policy:
+  allow_implicit_invocation: false

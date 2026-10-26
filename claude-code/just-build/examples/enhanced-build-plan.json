@@ -1,0 +1,92 @@
+{
+  "quality_profile": "enhanced",
+  "security_profile": "full",
+  "contract_profile": "external-cli",
+  "experience_profile": "v08",
+  "surface": "cli",
+  "user_journey": "A person adds a task, sees it in the list, and marks it complete without reading source code.",
+  "tasks": [
+    {
+      "id": "primary-journey",
+      "focus": "journey",
+      "change": "Persist task add and complete",
+      "acceptance": "Add and complete succeed and preserve data",
+      "test_label": "journey",
+      "test_command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_app.py"
+      ]
+    },
+    {
+      "id": "invalid-input",
+      "focus": "edge",
+      "change": "Show actionable invalid-input errors",
+      "acceptance": "Empty input is rejected with a clear message and no data loss",
+      "test_label": "edge",
+      "test_command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_errors.py"
+      ]
+    }
+  ],
+  "smoke_test": "Exercise the CLI from a temporary data directory through its public entry point.",
+  "smoke_label": "smoke",
+  "smoke_command": [
+    "python3",
+    "smoke.py"
+  ],
+  "polish_targets": [
+    "first-run",
+    "error-state",
+    "help-output",
+    "microcopy"
+  ],
+  "out_of_scope": [
+    "Cloud synchronization"
+  ],
+  "experience_checks": [
+    {
+      "scenario": "first-run",
+      "expected": "Fresh help, empty list and creation work through the public CLI",
+      "test_label": "experience-first-run",
+      "test_command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_experience.py"
+      ]
+    },
+    {
+      "scenario": "error-recovery",
+      "expected": "Invalid completion does not prevent subsequent add and complete actions",
+      "test_label": "experience-recovery",
+      "test_command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_errors.py"
+      ]
+    }
+  ],
+  "usability_profile": "novice-v1"
+}

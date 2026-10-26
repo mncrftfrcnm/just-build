@@ -1,0 +1,14 @@
+{
+  "status": "planned",
+  "nodes": [
+    {"id": "user", "label": "Local user"},
+    {"id": "interface", "label": "Button UI / CLI"},
+    {"id": "logic", "label": "Application logic"},
+    {"id": "store", "label": "Local project data"}
+  ],
+  "edges": [
+    {"from": "user", "to": "interface", "label": "chooses action"},
+    {"from": "interface", "to": "logic", "label": "request"},
+    {"from": "logic", "to": "store", "label": "read/write"}
+  ]
+}

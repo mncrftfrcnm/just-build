@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "fixture_only": true,
+  "reviewer_mode": "single-agent-fallback",
+  "reviewer_id": "illustrative-novice-role",
+  "simulation": true,
+  "assistance": "Illustrative schema only, not an actual executed user attempt.",
+  "verdict": "pass",
+  "goal": "Check a fictional CSV and save a new report using the public instructions.",
+  "entrypoint": "Public README quick start and CLI help",
+  "steps": [
+    {"id": "first-run", "action": "Run the documented sample command", "expected": "A clear pass/fail result", "observed": "Illustrative result; replace with actual visible output", "status": "pass"},
+    {"id": "returning-use", "action": "Repeat with a previously used report name", "expected": "Understand how to continue safely", "observed": "Illustrative existing-file guidance; replace with actual result", "status": "pass"}
+  ],
+  "difficulties": [
+    {"id": "report-rerun", "step_id": "returning-use", "severity": "minor", "issue": "Illustrative extra filename edit on returning use", "evidence": "Illustrative only; record actual command and result"}
+  ]
+}

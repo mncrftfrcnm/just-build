@@ -1,0 +1,8 @@
+{
+  "reviewer_mode": "single-agent-fallback",
+  "verdict": "pass",
+  "summary": "Reviewed real user journey, tests, error paths and documentation against the acceptance plan.",
+  "checks": {"journey": "pass", "edge-cases": "pass", "test-strength": "pass", "security": "pass", "documentation": "pass"},
+  "findings": [{"severity": "minor", "issue": "A missing-task case needed clearer messaging", "resolution": "fixed", "evidence": "Manual CLI error-path check and updated test"}],
+  "changes": ["Improve missing-task message"]
+}

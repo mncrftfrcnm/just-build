@@ -1,0 +1,182 @@
+# Verification only: no release creation, repository writes, secrets or publication.
+name: Verify release candidate
+'on':
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: Exact full lower-case 40-character commit SHA to verify
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: release-check-${{ inputs.commit }}
+  cancel-in-progress: false
+env:
+  PYTHONDONTWRITEBYTECODE: '1'
+  PYTHONUTF8: '1'
+jobs:
+  verify-ref:
+    name: Verify exact commit
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    env:
+      EXPECTED_COMMIT: ${{ inputs.commit }}
+    steps:
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      with:
+        persist-credentials: false
+        ref: ${{ inputs.commit }}
+    - run: |-
+        python - <<'PY'
+        import os, re, subprocess, sys
+        commit = os.environ['EXPECTED_COMMIT']
+        if not re.fullmatch(r'[0-9a-f]{40}', commit):
+            sys.exit('Commit must be a full lower-case SHA')
+        head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
+        if head != commit:
+            sys.exit('The checked-out commit does not match the requested SHA')
+        print('Verified immutable release candidate commit:', commit)
+        PY
+  repository:
+    name: Repository checks (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    steps:
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      with:
+        persist-credentials: false
+        ref: ${{ inputs.commit }}
+    - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+      with:
+        python-version: '3.13'
+    - run: python -m pip install -r requirements-dev.txt
+    - run: python tools/check_repo.py
+    - run: python tools/run_repository_tests.py > test-results-repository.json
+    - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+      with:
+        name: repository-${{ matrix.os }}
+        path: test-results-repository.json
+        if-no-files-found: error
+        retention-days: 14
+      if: always()
+    needs:
+    - verify-ref
+  test:
+    name: Skill tests (${{ matrix.os }}, py${{ matrix.python }}, ${{ matrix.host }})
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+        - ubuntu-latest
+        - windows-latest
+        python:
+        - '3.11'
+        - '3.13'
+        host:
+        - codex
+        - claude-code
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      with:
+        persist-credentials: false
+        ref: ${{ inputs.commit }}
+    - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+      with:
+        python-version: ${{ matrix.python }}
+    - run: python ${{ matrix.host }}/just-build/scripts/run_skill_tests.py --report test-results.json
+    - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+      with:
+        name: candidate-results-${{ matrix.os }}-${{ matrix.python }}-${{ matrix.host }}
+        path: test-results.json
+        if-no-files-found: error
+        retention-days: 14
+      if: always()
+    needs:
+    - verify-ref
+  examples:
+    name: Generated examples (${{ matrix.os }}, py${{ matrix.python }})
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+        - ubuntu-latest
+        - windows-latest
+        python:
+        - '3.11'
+        - '3.13'
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      with:
+        persist-credentials: false
+        ref: ${{ inputs.commit }}
+    - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+      with:
+        python-version: ${{ matrix.python }}
+    - run: python tools/run_examples.py --report test-results-examples.json
+    - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+      with:
+        name: candidate-examples-${{ matrix.os }}-${{ matrix.python }}
+        path: test-results-examples.json
+        if-no-files-found: error
+        retention-days: 14
+      if: always()
+    needs:
+    - verify-ref
+  packages:
+    name: Verified release packages
+    needs:
+    - verify-ref
+    - repository
+    - test
+    - examples
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      with:
+        persist-credentials: false
+        ref: ${{ inputs.commit }}
+    - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+      with:
+        python-version: '3.13'
+    - run: python -m pip install -r requirements-dev.txt
+    - run: python tools/build_release.py
+    - run: python tools/verify_release.py --artifacts dist
+    - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+      with:
+        name: candidate-verified-packages-${{ inputs.commit }}
+        path: dist/*
+        if-no-files-found: error
+        retention-days: 14
+  ci:
+    name: Release verification
+    needs:
+    - verify-ref
+    - repository
+    - test
+    - examples
+    - packages
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    env:
+      JOB_RESULTS: ${{ toJSON(needs) }}
+    steps:
+    - run: |-
+        python - <<'PY'
+        import json, os, sys
+        results = json.loads(os.environ['JOB_RESULTS'])
+        failed = {name: job['result'] for name, job in results.items() if job['result'] != 'success'}
+        print(json.dumps(results, indent=2))
+        if not results or failed:
+            sys.exit('Required jobs did not all succeed: ' + json.dumps(failed))
+        PY

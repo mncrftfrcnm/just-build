@@ -1,0 +1,14 @@
+{
+  "reviewer_mode": "single-agent-fallback",
+  "verdict": "pass",
+  "summary": "Checked first-run CLI instructions, error behavior and help text against the working commands.",
+  "checks": {"wording": "pass", "usability": "pass", "consistency": "pass", "accessibility": "not-applicable", "handoff": "pass"},
+  "findings": [],
+  "changes": ["Clarified empty-list text and first-run example"],
+  "target_evidence": {
+    "first-run": {"status": "pass", "evidence": "Executed the README's first command in a fresh temporary directory"},
+    "error-state": {"status": "pass", "evidence": "Checked missing task input produces an actionable error"},
+    "help-output": {"status": "pass", "evidence": "Compared --help to supported arguments"},
+    "microcopy": {"status": "pass", "evidence": "Empty and completion messages now use consistent task terminology"}
+  }
+}

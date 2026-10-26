@@ -1,0 +1,16 @@
+{
+  "quality_profile": "enhanced",
+  "autonomy_profile": "rigorous",
+  "surface": "cli",
+  "user_journey": "A person adds a task, lists it, completes it and sees the persisted change.",
+  "research_topics": ["CLI argument and error conventions", "Python isolated testing conventions"],
+  "tasks": [
+    {"id":"journey", "focus":"journey", "change":"Persist real task lifecycle", "acceptance":"Actual CLI add/list/done returns expected state", "test_label":"journey", "test_command":["python3","-m","unittest","discover","-s","tests","-p","test_app.py"]},
+    {"id":"edge", "focus":"edge", "change":"Handle invalid input safely", "acceptance":"Reject invalid task ID with nonzero exit and useful guidance", "test_label":"edge", "test_command":["python3","-m","unittest","discover","-s","tests","-p","test_errors.py"]}
+  ],
+  "smoke_test": "Run the public CLI from a fresh temporary data location, asserting observable output.",
+  "smoke_label": "smoke",
+  "smoke_command": ["python3", "smoke.py"],
+  "polish_targets": ["first-run","error-state","help-output","microcopy"],
+  "out_of_scope": ["Cloud synchronization", "Deployment"]
+}

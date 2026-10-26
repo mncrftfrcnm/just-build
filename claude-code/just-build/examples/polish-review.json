@@ -1,0 +1,8 @@
+{
+  "reviewer_mode": "single-agent-fallback",
+  "verdict": "pass",
+  "summary": "Checked the summarized build and usable result for clarity, approachable wording, coherent flow and friction.",
+  "checks": {"wording": "pass", "usability": "pass", "consistency": "pass", "accessibility": "not-applicable", "handoff": "pass"},
+  "findings": [],
+  "changes": ["Add friendly empty-list message and clarify first-run README wording"]
+}

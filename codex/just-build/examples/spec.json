@@ -1,0 +1,18 @@
+{
+  "mode": "auto",
+  "name": "Local Task Board",
+  "slug": "local-task-board",
+  "summary": "A local-first board for tracking small projects.",
+  "audience": "Solo developers",
+  "problem": "Small tasks get lost between coding sessions.",
+  "first_slice": "Create, list, and complete tasks from a local CLI.",
+  "mvp_features": ["Create tasks", "List incomplete tasks", "Complete tasks"],
+  "stack": ["Python 3 standard library"],
+  "direction": "original",
+  "effort": "focused",
+  "interest_evidence": ["Demonstration-only; not personal context"],
+  "trend_status": "not_requested",
+  "trend_evidence": [],
+  "alternatives": [],
+  "assumptions": ["No paid APIs", "Demo spec; not a live research result"]
+}

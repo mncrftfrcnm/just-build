@@ -1,0 +1,1205 @@
+{
+  "candidates": {
+    "trend_status": "unverified",
+    "candidates": [
+      {
+        "name": "Local developer task board",
+        "reason": "Small, feasible, demonstrable without network or third-party credentials.",
+        "scores": {
+          "interest": 4,
+          "trend": 0,
+          "feasibility": 5,
+          "differentiation": 2
+        },
+        "evidence": [
+          "Demo-only interest inference; no live trend claim"
+        ],
+        "seed_id": "local-developer-task-board"
+      },
+      {
+        "name": "Project handoff generator",
+        "reason": "Good for developer productivity, requires more workflow design.",
+        "scores": {
+          "interest": 4,
+          "trend": 0,
+          "feasibility": 4,
+          "differentiation": 3
+        },
+        "evidence": [],
+        "seed_id": "project-handoff-generator"
+      },
+      {
+        "name": "Dependency digest",
+        "reason": "Useful but sourcing changes safely requires extra integration work.",
+        "scores": {
+          "interest": 3,
+          "trend": 0,
+          "feasibility": 3,
+          "differentiation": 3
+        },
+        "evidence": [],
+        "seed_id": "dependency-digest"
+      },
+      {
+        "seed_id": "rehearsal-studio",
+        "name": "Rehearsal studio",
+        "reason": "A concrete, playful wildcard with a runnable branching local demo.",
+        "scores": {
+          "interest": 2,
+          "trend": 0,
+          "feasibility": 4,
+          "differentiation": 5
+        },
+        "evidence": [
+          "Exploratory proposal, not verified user demand"
+        ]
+      },
+      {
+        "seed_id": "reading-lens",
+        "name": "Reading lens",
+        "reason": "Accessibility-first reader with a compact first-run demo.",
+        "scores": {
+          "interest": 3,
+          "trend": 0,
+          "feasibility": 4,
+          "differentiation": 4
+        },
+        "evidence": [
+          "Exploratory accessibility direction"
+        ]
+      }
+    ]
+  },
+  "pool": {
+    "version": 1,
+    "ideas": [
+      {
+        "id": "local-developer-task-board",
+        "name": "Local developer task board",
+        "lane": "developer-tools",
+        "origin": "stated-interest",
+        "audience": "Solo software builders",
+        "problem": "Small development tasks scatter across terminal notes and become hard to finish",
+        "mechanism": "Local-first task board that pairs work items with a next-action command",
+        "first_demo": "Add a task, list it, complete it and reopen its saved state",
+        "hook": "A single next-action view that feels like a lightweight workbench",
+        "interest_basis": "Illustrative developer-productivity interest supplied in example data, not inferred private history",
+        "interaction": "capture-retrieve"
+      },
+      {
+        "id": "project-handoff-generator",
+        "name": "Project handoff generator",
+        "lane": "infrastructure",
+        "origin": "observed-work",
+        "audience": "Developers transferring incomplete experiments",
+        "problem": "Reconstructing decisions after a paused project consumes time and loses caveats",
+        "mechanism": "Inspect a chosen repository and create a bounded executable continuation brief",
+        "first_demo": "Turn a toy repository into a clear status and first-run handoff",
+        "hook": "A project time capsule that includes evidence rather than a generic summary",
+        "interest_basis": "Example seed from an explicit handoff workflow; no connected-account claim",
+        "interaction": "transform-export"
+      },
+      {
+        "id": "dependency-digest",
+        "name": "Dependency digest",
+        "lane": "data-insight",
+        "origin": "adjacent",
+        "audience": "Maintainers of small open-source libraries",
+        "problem": "It is hard to see which dependency updates actually affect a chosen project",
+        "mechanism": "Compare local dependency manifests with explicitly supplied release-note samples",
+        "first_demo": "Feed a local manifest and a fixture, then produce an impact-oriented change digest",
+        "hook": "Explains why each change matters before suggesting any upgrade",
+        "interest_basis": "Adjacent to development tasks; trend status not asserted",
+        "interaction": "compare-decide"
+      },
+      {
+        "id": "rehearsal-studio",
+        "name": "Rehearsal studio",
+        "lane": "creative-play",
+        "origin": "exploratory",
+        "audience": "People practicing difficult conversations",
+        "problem": "Rehearsing a presentation feels abstract without varied reactions and reflection",
+        "mechanism": "Local branching role-play cards with optional replay and self-reflection",
+        "first_demo": "Pick a scenario, choose two responses and compare how the dialogue changes",
+        "hook": "A low-stakes stage for trying three different ways to say one thing",
+        "interest_basis": "Creative wildcard, not a known user preference",
+        "interaction": "simulate-replay"
+      },
+      {
+        "id": "repair-storybook",
+        "name": "Repair storybook",
+        "lane": "everyday-life",
+        "origin": "exploratory",
+        "audience": "People keeping household maintenance notes",
+        "problem": "Small recurring home problems are forgotten between repairs",
+        "mechanism": "Offline repair logs that connect symptoms, actions and later outcomes",
+        "first_demo": "Record a fictional leaking tap, add the fix and find its history",
+        "hook": "A memory of what actually worked, not another generic to-do list",
+        "interest_basis": "Everyday-life wildcard; does not require personal or home access",
+        "interaction": "capture-retrieve"
+      },
+      {
+        "id": "borrow-circle",
+        "name": "Borrow circle",
+        "lane": "community",
+        "origin": "public-signal",
+        "audience": "A small voluntary neighborhood group",
+        "problem": "Members repeatedly buy rarely used tools while nearby members could lend them",
+        "mechanism": "Opt-in inventory and loan request ledger with no automatic outreach",
+        "first_demo": "Create sample members and request a shared item in an offline demo",
+        "hook": "A tiny lending library for things too awkward to borrow casually",
+        "interest_basis": "Concept inspired by a general community pattern, not a verified current trend",
+        "interaction": "coordinate-share"
+      },
+      {
+        "id": "concept-dojo",
+        "name": "Concept dojo",
+        "lane": "learning",
+        "origin": "adjacent",
+        "audience": "Self-taught learners building confidence with new concepts",
+        "problem": "Reading explanations alone does not reveal misunderstandings before practice",
+        "mechanism": "Micro-challenges that ask for an explanation before revealing worked examples",
+        "first_demo": "Attempt one seeded concept, get actionable feedback and retry",
+        "hook": "Turns the moment of confusion into a short deliberate practice loop",
+        "interest_basis": "Adjacent to personal-project learning, not based on hidden history",
+        "interaction": "learn-by-doing"
+      },
+      {
+        "id": "reading-lens",
+        "name": "Reading lens",
+        "lane": "accessibility",
+        "origin": "exploratory",
+        "audience": "People who prefer configurable reading layouts",
+        "problem": "Long dense instructions can be tiring to scan at a fixed width and spacing",
+        "mechanism": "Local text viewer with adjustable line length, spacing and landmark navigation",
+        "first_demo": "Load fixture instructions and switch between two legible reading layouts",
+        "hook": "Adapts a document to the reader without rewriting its meaning",
+        "interest_basis": "Accessibility-oriented exploration, no medical inference",
+        "interaction": "adapt-access"
+      },
+      {
+        "id": "quiet-hours-planner",
+        "name": "Quiet hours planner",
+        "lane": "everyday-life",
+        "origin": "exploratory",
+        "audience": "People coordinating a shared workspace",
+        "problem": "Collaborators accidentally schedule distracting tasks over focus windows",
+        "mechanism": "Shared sample calendar with explicit focus-hour conflict warnings",
+        "first_demo": "Add fictional events and visualize an avoidable overlap",
+        "hook": "Negotiates quiet time before the interruption happens",
+        "interest_basis": "Unprompted practical wildcard; no access to real calendars assumed",
+        "interaction": "explore-visualize"
+      },
+      {
+        "id": "fixture-forge",
+        "name": "Fixture forge",
+        "lane": "developer-tools",
+        "origin": "adjacent",
+        "audience": "Developers testing data-heavy CLI tools",
+        "problem": "Realistic, reproducible test data is slow to prepare safely",
+        "mechanism": "Schema-driven local fixture generation with edge-case presets",
+        "first_demo": "Generate seeded JSON records and run deterministic edge-case presets",
+        "hook": "Makes awkward test cases easy without copying production data",
+        "interest_basis": "Adjacent to testing and development, no production-data access",
+        "interaction": "transform-export"
+      }
+    ]
+  },
+  "as_of": "2026-10-23",
+  "primary": {
+    "version": 1,
+    "role": "primary",
+    "created_on": "2026-10-23",
+    "fixture_only": true,
+    "reviewer": {
+      "mode": "single-agent",
+      "id": "fixture-role-primary"
+    },
+    "sources": [
+      {
+        "id": "user",
+        "kind": "user",
+        "locator": "synthetic-test: stated wish for local tools",
+        "publisher": "fixture-user",
+        "finding": "Synthetic user explicitly wants a no-key local tool.",
+        "observed_on": "2026-10-23"
+      },
+      {
+        "id": "alternative-one",
+        "kind": "local",
+        "locator": "synthetic-test: alternative-one spec",
+        "publisher": "fixture-alternative-one",
+        "finding": "Synthetic existing tool requires manual re-entry.",
+        "observed_on": "2026-10-23"
+      },
+      {
+        "id": "alternative-two",
+        "kind": "local",
+        "locator": "synthetic-test: manual-workflow",
+        "publisher": "fixture-alternative-two",
+        "finding": "Synthetic manual workflow has no cross-session recovery.",
+        "observed_on": "2026-10-23"
+      },
+      {
+        "id": "need",
+        "kind": "local",
+        "locator": "synthetic-test: observation-a",
+        "publisher": "observation-a",
+        "finding": "Synthetic independent observation supports a recoverable local journey.",
+        "observed_on": "2026-10-23"
+      }
+    ],
+    "assessments": [
+      {
+        "seed_id": "local-developer-task-board",
+        "scores": {
+          "user_fit": 4.5,
+          "usefulness": 4.5,
+          "feasibility": 4.5,
+          "differentiation": 4.5,
+          "trend": 0
+        },
+        "score_evidence": {
+          "user_fit": [
+            "user"
+          ],
+          "usefulness": [
+            "need"
+          ],
+          "feasibility": [
+            "need"
+          ],
+          "differentiation": [
+            "alternative-one",
+            "alternative-two",
+            "need"
+          ],
+          "trend": []
+        },
+        "constraints": {
+          "resources": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          },
+          "privacy_safety": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          },
+          "first_slice": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          }
+        },
+        "need": {
+          "finding": "Synthetic user loses task state between sessions.",
+          "evidence": [
+            "need"
+          ]
+        },
+        "disconfirming": {
+          "finding": "A simple manual list may already be sufficient; test before expanding.",
+          "evidence": [
+            "alternative-two"
+          ]
+        },
+        "differentiation": {
+          "alternatives": [
+            {
+              "name": "Synthetic alternative one",
+              "evidence": [
+                "alternative-one"
+              ]
+            },
+            {
+              "name": "Synthetic manual list",
+              "evidence": [
+                "alternative-two"
+              ]
+            }
+          ],
+          "advantage": "Recover a paused local journey without retyping state.",
+          "falsifier": "The existing alternative resumes the same journey with equal effort.",
+          "test": "Compare interrupted-session recovery using a fixed three-task fixture.",
+          "evidence": [
+            "need",
+            "alternative-one",
+            "alternative-two"
+          ]
+        }
+      },
+      {
+        "seed_id": "project-handoff-generator",
+        "scores": {
+          "user_fit": 3.5,
+          "usefulness": 3.5,
+          "feasibility": 3.5,
+          "differentiation": 3.5,
+          "trend": 0
+        },
+        "score_evidence": {
+          "user_fit": [
+            "user"
+          ],
+          "usefulness": [
+            "need"
+          ],
+          "feasibility": [
+            "need"
+          ],
+          "differentiation": [
+            "alternative-one",
+            "alternative-two",
+            "need"
+          ],
+          "trend": []
+        },
+        "constraints": {
+          "resources": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          },
+          "privacy_safety": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          },
+          "first_slice": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          }
+        },
+        "need": {
+          "finding": "Synthetic user loses task state between sessions.",
+          "evidence": [
+            "need"
+          ]
+        },
+        "disconfirming": {
+          "finding": "A simple manual list may already be sufficient; test before expanding.",
+          "evidence": [
+            "alternative-two"
+          ]
+        },
+        "differentiation": {
+          "alternatives": [
+            {
+              "name": "Synthetic alternative one",
+              "evidence": [
+                "alternative-one"
+              ]
+            },
+            {
+              "name": "Synthetic manual list",
+              "evidence": [
+                "alternative-two"
+              ]
+            }
+          ],
+          "advantage": "Recover a paused local journey without retyping state.",
+          "falsifier": "The existing alternative resumes the same journey with equal effort.",
+          "test": "Compare interrupted-session recovery using a fixed three-task fixture.",
+          "evidence": [
+            "need",
+            "alternative-one",
+            "alternative-two"
+          ]
+        }
+      },
+      {
+        "seed_id": "dependency-digest",
+        "scores": {
+          "user_fit": 3.5,
+          "usefulness": 3.5,
+          "feasibility": 3.5,
+          "differentiation": 3.5,
+          "trend": 0
+        },
+        "score_evidence": {
+          "user_fit": [
+            "user"
+          ],
+          "usefulness": [
+            "need"
+          ],
+          "feasibility": [
+            "need"
+          ],
+          "differentiation": [
+            "alternative-one",
+            "alternative-two",
+            "need"
+          ],
+          "trend": []
+        },
+        "constraints": {
+          "resources": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          },
+          "privacy_safety": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          },
+          "first_slice": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          }
+        },
+        "need": {
+          "finding": "Synthetic user loses task state between sessions.",
+          "evidence": [
+            "need"
+          ]
+        },
+        "disconfirming": {
+          "finding": "A simple manual list may already be sufficient; test before expanding.",
+          "evidence": [
+            "alternative-two"
+          ]
+        },
+        "differentiation": {
+          "alternatives": [
+            {
+              "name": "Synthetic alternative one",
+              "evidence": [
+                "alternative-one"
+              ]
+            },
+            {
+              "name": "Synthetic manual list",
+              "evidence": [
+                "alternative-two"
+              ]
+            }
+          ],
+          "advantage": "Recover a paused local journey without retyping state.",
+          "falsifier": "The existing alternative resumes the same journey with equal effort.",
+          "test": "Compare interrupted-session recovery using a fixed three-task fixture.",
+          "evidence": [
+            "need",
+            "alternative-one",
+            "alternative-two"
+          ]
+        }
+      },
+      {
+        "seed_id": "rehearsal-studio",
+        "scores": {
+          "user_fit": 3.5,
+          "usefulness": 3.5,
+          "feasibility": 3.5,
+          "differentiation": 3.5,
+          "trend": 0
+        },
+        "score_evidence": {
+          "user_fit": [
+            "user"
+          ],
+          "usefulness": [
+            "need"
+          ],
+          "feasibility": [
+            "need"
+          ],
+          "differentiation": [
+            "alternative-one",
+            "alternative-two",
+            "need"
+          ],
+          "trend": []
+        },
+        "constraints": {
+          "resources": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          },
+          "privacy_safety": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          },
+          "first_slice": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          }
+        },
+        "need": {
+          "finding": "Synthetic user loses task state between sessions.",
+          "evidence": [
+            "need"
+          ]
+        },
+        "disconfirming": {
+          "finding": "A simple manual list may already be sufficient; test before expanding.",
+          "evidence": [
+            "alternative-two"
+          ]
+        },
+        "differentiation": {
+          "alternatives": [
+            {
+              "name": "Synthetic alternative one",
+              "evidence": [
+                "alternative-one"
+              ]
+            },
+            {
+              "name": "Synthetic manual list",
+              "evidence": [
+                "alternative-two"
+              ]
+            }
+          ],
+          "advantage": "Recover a paused local journey without retyping state.",
+          "falsifier": "The existing alternative resumes the same journey with equal effort.",
+          "test": "Compare interrupted-session recovery using a fixed three-task fixture.",
+          "evidence": [
+            "need",
+            "alternative-one",
+            "alternative-two"
+          ]
+        }
+      },
+      {
+        "seed_id": "reading-lens",
+        "scores": {
+          "user_fit": 3.5,
+          "usefulness": 3.5,
+          "feasibility": 3.5,
+          "differentiation": 3.5,
+          "trend": 0
+        },
+        "score_evidence": {
+          "user_fit": [
+            "user"
+          ],
+          "usefulness": [
+            "need"
+          ],
+          "feasibility": [
+            "need"
+          ],
+          "differentiation": [
+            "alternative-one",
+            "alternative-two",
+            "need"
+          ],
+          "trend": []
+        },
+        "constraints": {
+          "resources": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          },
+          "privacy_safety": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          },
+          "first_slice": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          }
+        },
+        "need": {
+          "finding": "Synthetic user loses task state between sessions.",
+          "evidence": [
+            "need"
+          ]
+        },
+        "disconfirming": {
+          "finding": "A simple manual list may already be sufficient; test before expanding.",
+          "evidence": [
+            "alternative-two"
+          ]
+        },
+        "differentiation": {
+          "alternatives": [
+            {
+              "name": "Synthetic alternative one",
+              "evidence": [
+                "alternative-one"
+              ]
+            },
+            {
+              "name": "Synthetic manual list",
+              "evidence": [
+                "alternative-two"
+              ]
+            }
+          ],
+          "advantage": "Recover a paused local journey without retyping state.",
+          "falsifier": "The existing alternative resumes the same journey with equal effort.",
+          "test": "Compare interrupted-session recovery using a fixed three-task fixture.",
+          "evidence": [
+            "need",
+            "alternative-one",
+            "alternative-two"
+          ]
+        }
+      }
+    ],
+    "shortlist_sha256": "ff98773862461e7f9b215bd314cedc4f873357fcd60b3413fd0b3e86069c4d03"
+  },
+  "validation": {
+    "version": 1,
+    "role": "validation",
+    "created_on": "2026-10-23",
+    "fixture_only": true,
+    "reviewer": {
+      "mode": "single-agent",
+      "id": "fixture-role-validation"
+    },
+    "sources": [
+      {
+        "id": "user",
+        "kind": "user",
+        "locator": "synthetic-test: stated wish for local tools",
+        "publisher": "fixture-user",
+        "finding": "Synthetic user explicitly wants a no-key local tool.",
+        "observed_on": "2026-10-23"
+      },
+      {
+        "id": "alternative-one",
+        "kind": "local",
+        "locator": "synthetic-test: alternative-one spec",
+        "publisher": "fixture-alternative-one",
+        "finding": "Synthetic existing tool requires manual re-entry.",
+        "observed_on": "2026-10-23"
+      },
+      {
+        "id": "alternative-two",
+        "kind": "local",
+        "locator": "synthetic-test: manual-workflow",
+        "publisher": "fixture-alternative-two",
+        "finding": "Synthetic manual workflow has no cross-session recovery.",
+        "observed_on": "2026-10-23"
+      },
+      {
+        "id": "need",
+        "kind": "local",
+        "locator": "synthetic-test: observation-b",
+        "publisher": "observation-b",
+        "finding": "Synthetic independent observation supports a recoverable local journey.",
+        "observed_on": "2026-10-23"
+      }
+    ],
+    "assessments": [
+      {
+        "seed_id": "local-developer-task-board",
+        "scores": {
+          "user_fit": 4.5,
+          "usefulness": 4.5,
+          "feasibility": 4.5,
+          "differentiation": 4.5,
+          "trend": 0
+        },
+        "score_evidence": {
+          "user_fit": [
+            "user"
+          ],
+          "usefulness": [
+            "need"
+          ],
+          "feasibility": [
+            "need"
+          ],
+          "differentiation": [
+            "alternative-one",
+            "alternative-two",
+            "need"
+          ],
+          "trend": []
+        },
+        "constraints": {
+          "resources": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          },
+          "privacy_safety": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          },
+          "first_slice": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          }
+        },
+        "need": {
+          "finding": "Synthetic user loses task state between sessions.",
+          "evidence": [
+            "need"
+          ]
+        },
+        "disconfirming": {
+          "finding": "A simple manual list may already be sufficient; test before expanding.",
+          "evidence": [
+            "alternative-two"
+          ]
+        },
+        "differentiation": {
+          "alternatives": [
+            {
+              "name": "Synthetic alternative one",
+              "evidence": [
+                "alternative-one"
+              ]
+            },
+            {
+              "name": "Synthetic manual list",
+              "evidence": [
+                "alternative-two"
+              ]
+            }
+          ],
+          "advantage": "Recover a paused local journey without retyping state.",
+          "falsifier": "The existing alternative resumes the same journey with equal effort.",
+          "test": "Compare interrupted-session recovery using a fixed three-task fixture.",
+          "evidence": [
+            "need",
+            "alternative-one",
+            "alternative-two"
+          ]
+        }
+      },
+      {
+        "seed_id": "project-handoff-generator",
+        "scores": {
+          "user_fit": 3.5,
+          "usefulness": 3.5,
+          "feasibility": 3.5,
+          "differentiation": 3.5,
+          "trend": 0
+        },
+        "score_evidence": {
+          "user_fit": [
+            "user"
+          ],
+          "usefulness": [
+            "need"
+          ],
+          "feasibility": [
+            "need"
+          ],
+          "differentiation": [
+            "alternative-one",
+            "alternative-two",
+            "need"
+          ],
+          "trend": []
+        },
+        "constraints": {
+          "resources": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          },
+          "privacy_safety": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          },
+          "first_slice": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          }
+        },
+        "need": {
+          "finding": "Synthetic user loses task state between sessions.",
+          "evidence": [
+            "need"
+          ]
+        },
+        "disconfirming": {
+          "finding": "A simple manual list may already be sufficient; test before expanding.",
+          "evidence": [
+            "alternative-two"
+          ]
+        },
+        "differentiation": {
+          "alternatives": [
+            {
+              "name": "Synthetic alternative one",
+              "evidence": [
+                "alternative-one"
+              ]
+            },
+            {
+              "name": "Synthetic manual list",
+              "evidence": [
+                "alternative-two"
+              ]
+            }
+          ],
+          "advantage": "Recover a paused local journey without retyping state.",
+          "falsifier": "The existing alternative resumes the same journey with equal effort.",
+          "test": "Compare interrupted-session recovery using a fixed three-task fixture.",
+          "evidence": [
+            "need",
+            "alternative-one",
+            "alternative-two"
+          ]
+        }
+      },
+      {
+        "seed_id": "dependency-digest",
+        "scores": {
+          "user_fit": 3.5,
+          "usefulness": 3.5,
+          "feasibility": 3.5,
+          "differentiation": 3.5,
+          "trend": 0
+        },
+        "score_evidence": {
+          "user_fit": [
+            "user"
+          ],
+          "usefulness": [
+            "need"
+          ],
+          "feasibility": [
+            "need"
+          ],
+          "differentiation": [
+            "alternative-one",
+            "alternative-two",
+            "need"
+          ],
+          "trend": []
+        },
+        "constraints": {
+          "resources": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          },
+          "privacy_safety": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          },
+          "first_slice": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          }
+        },
+        "need": {
+          "finding": "Synthetic user loses task state between sessions.",
+          "evidence": [
+            "need"
+          ]
+        },
+        "disconfirming": {
+          "finding": "A simple manual list may already be sufficient; test before expanding.",
+          "evidence": [
+            "alternative-two"
+          ]
+        },
+        "differentiation": {
+          "alternatives": [
+            {
+              "name": "Synthetic alternative one",
+              "evidence": [
+                "alternative-one"
+              ]
+            },
+            {
+              "name": "Synthetic manual list",
+              "evidence": [
+                "alternative-two"
+              ]
+            }
+          ],
+          "advantage": "Recover a paused local journey without retyping state.",
+          "falsifier": "The existing alternative resumes the same journey with equal effort.",
+          "test": "Compare interrupted-session recovery using a fixed three-task fixture.",
+          "evidence": [
+            "need",
+            "alternative-one",
+            "alternative-two"
+          ]
+        }
+      },
+      {
+        "seed_id": "rehearsal-studio",
+        "scores": {
+          "user_fit": 3.5,
+          "usefulness": 3.5,
+          "feasibility": 3.5,
+          "differentiation": 3.5,
+          "trend": 0
+        },
+        "score_evidence": {
+          "user_fit": [
+            "user"
+          ],
+          "usefulness": [
+            "need"
+          ],
+          "feasibility": [
+            "need"
+          ],
+          "differentiation": [
+            "alternative-one",
+            "alternative-two",
+            "need"
+          ],
+          "trend": []
+        },
+        "constraints": {
+          "resources": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          },
+          "privacy_safety": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          },
+          "first_slice": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          }
+        },
+        "need": {
+          "finding": "Synthetic user loses task state between sessions.",
+          "evidence": [
+            "need"
+          ]
+        },
+        "disconfirming": {
+          "finding": "A simple manual list may already be sufficient; test before expanding.",
+          "evidence": [
+            "alternative-two"
+          ]
+        },
+        "differentiation": {
+          "alternatives": [
+            {
+              "name": "Synthetic alternative one",
+              "evidence": [
+                "alternative-one"
+              ]
+            },
+            {
+              "name": "Synthetic manual list",
+              "evidence": [
+                "alternative-two"
+              ]
+            }
+          ],
+          "advantage": "Recover a paused local journey without retyping state.",
+          "falsifier": "The existing alternative resumes the same journey with equal effort.",
+          "test": "Compare interrupted-session recovery using a fixed three-task fixture.",
+          "evidence": [
+            "need",
+            "alternative-one",
+            "alternative-two"
+          ]
+        }
+      },
+      {
+        "seed_id": "reading-lens",
+        "scores": {
+          "user_fit": 3.5,
+          "usefulness": 3.5,
+          "feasibility": 3.5,
+          "differentiation": 3.5,
+          "trend": 0
+        },
+        "score_evidence": {
+          "user_fit": [
+            "user"
+          ],
+          "usefulness": [
+            "need"
+          ],
+          "feasibility": [
+            "need"
+          ],
+          "differentiation": [
+            "alternative-one",
+            "alternative-two",
+            "need"
+          ],
+          "trend": []
+        },
+        "constraints": {
+          "resources": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          },
+          "privacy_safety": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          },
+          "first_slice": {
+            "status": "pass",
+            "reason": "Synthetic local no-key fixture meets this constraint.",
+            "evidence": [
+              "user",
+              "need"
+            ]
+          }
+        },
+        "need": {
+          "finding": "Synthetic user loses task state between sessions.",
+          "evidence": [
+            "need"
+          ]
+        },
+        "disconfirming": {
+          "finding": "A simple manual list may already be sufficient; test before expanding.",
+          "evidence": [
+            "alternative-two"
+          ]
+        },
+        "differentiation": {
+          "alternatives": [
+            {
+              "name": "Synthetic alternative one",
+              "evidence": [
+                "alternative-one"
+              ]
+            },
+            {
+              "name": "Synthetic manual list",
+              "evidence": [
+                "alternative-two"
+              ]
+            }
+          ],
+          "advantage": "Recover a paused local journey without retyping state.",
+          "falsifier": "The existing alternative resumes the same journey with equal effort.",
+          "test": "Compare interrupted-session recovery using a fixed three-task fixture.",
+          "evidence": [
+            "need",
+            "alternative-one",
+            "alternative-two"
+          ]
+        }
+      }
+    ],
+    "blinded": true,
+    "shortlist_sha256": "ff98773862461e7f9b215bd314cedc4f873357fcd60b3413fd0b3e86069c4d03"
+  },
+  "arbitration": {
+    "version": 1,
+    "resolutions": [],
+    "decision": {
+      "outcome": "build",
+      "seed_id": "local-developer-task-board",
+      "reason": "Synthetic fixture: strongest conservative useful local journey."
+    },
+    "primary_sha256": "3fae1ab983ebba10337f6d4507e019bf2c79b90a1ec7d56221c000ca7c77dcdb",
+    "validation_sha256": "e8732320a1fab27bacca5d68a9f7b409d2c61aafd2de53f61ddc63666bf9376c"
+  }
+}

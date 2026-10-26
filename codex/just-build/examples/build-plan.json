@@ -1,0 +1,14 @@
+{
+  "user_journey": "A developer creates a task, lists it, and marks it complete using the local CLI.",
+  "tasks": [
+    {
+      "id": "task-store",
+      "change": "Implement local task storage and completion",
+      "acceptance": "Creating a task persists it and completion updates it without losing other tasks.",
+      "test_label": "unit"
+    }
+  ],
+  "smoke_test": "Run the CLI in a temporary data directory: add task, list task, complete it, list completed tasks.",
+  "smoke_label": "smoke",
+  "out_of_scope": ["Remote sync", "Login and account management"]
+}

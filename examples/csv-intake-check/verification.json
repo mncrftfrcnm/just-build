@@ -1,0 +1,53 @@
+{
+  "recorded_date": "2026-10-24",
+  "environment": "Codex app agent, Windows, Python 3.13.5",
+  "mode": "named-project",
+  "tracker_snapshot": {
+    "run_id": "015b7eb45794",
+    "stages": {
+      "research": "done",
+      "plan": "done",
+      "implement": "done",
+      "verify": "done",
+      "quality": "done",
+      "polish": "done",
+      "final-verify": "done",
+      "handoff": "done"
+    },
+    "verification_ready": true,
+    "final_verification_ready": true,
+    "test_executions": 13,
+    "reviews": {
+      "quality": "pass",
+      "polish": "pass",
+      "security": "pass"
+    },
+    "security_ready": true,
+    "complete": true,
+    "research_entries": 5
+  },
+  "original_source_fingerprint": "165bec83087c8f2b551b0174b87c2a79d8f82e2582e68a20d74eed231a9c8fc1",
+  "unchanged_files": [
+    {
+      "path": "app.py",
+      "sha256": "c349c8dc56541db3efa4c32f273ecc22c75f50c572c3b6933465704b818cbad7"
+    },
+    {
+      "path": "PROJECT_BRIEF.md",
+      "sha256": "ed99de9be281e6810ccde314ab5aea4db54388c8ee7261de9e144f468d38f79e"
+    },
+    {
+      "path": "tests/test_cli.py",
+      "sha256": "e33eb3ef07cb393bf00899ac8ec68db04f2f099f44d68f065d9a29632a8d8ed9"
+    },
+    {
+      "path": "examples/valid.csv",
+      "sha256": "f763296ce3dfecf4614c043d069dc18648ecbfc74046412b95ebbc3a6ac7b359"
+    },
+    {
+      "path": "examples/wrong-width.csv",
+      "sha256": "376202b68718fd67651f072d73c5786d0818bf761fc94bf77cac8da50d8daa32"
+    }
+  ],
+  "scope": "Sanitized snapshot of an actual assisted trial, not a replayable ledger or independent attestation. See GENERATION.md for interventions and review provenance."
+}

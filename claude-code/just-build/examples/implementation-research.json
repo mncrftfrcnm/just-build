@@ -1,0 +1,10 @@
+{
+  "phase": "implementation",
+  "topic": "CLI argument and error conventions",
+  "kind": "web",
+  "url": "https://docs.python.org/3/library/argparse.html",
+  "source_date": "undated reference documentation",
+  "accessed_at": "2026-10-21T12:00:00+00:00",
+  "finding": "argparse supports actionable parse errors and standard --help output.",
+  "application": "Use argparse for the public CLI and assert malformed IDs give an error."
+}

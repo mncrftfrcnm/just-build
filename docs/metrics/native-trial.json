@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "trial": "Fresh native Codex CLI, named offline browser tool",
+  "case": "Accessible local reading-time calculator",
+  "source_package": "codex/just-build",
+  "source_tree_digest_sha256": "99541cf5231bea2dda5826eb9768928a70570d40bdc3a160d40a4b65f20b0aea",
+  "host_version": "codex-cli 0.163.0-alpha.10.2",
+  "model_override": null,
+  "observed_model": null,
+  "model_observation_note": "Only an explicitly exposed native event model value is recorded; user config and credentials were not read.",
+  "native_invocation": [
+    "codex",
+    "--no-daemon",
+    "--ask-for-approval",
+    "never",
+    "exec",
+    "--json",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "workspace-write",
+    "--color",
+    "never",
+    "--cd",
+    "<isolated-project>",
+    "-"
+  ],
+  "fresh_project_skill_location": ".agents/skills/just-build",
+  "native_skill_entry_read_observed": true,
+  "copied_skill_logical_file_changes": [],
+  "prompt_sha256": "2d256158f5a5fe56cfd324f52e0289fb627f6afd88f73310ef0a79d87a5b818c",
+  "initial_restricted_launch": {
+    "exit_code": 1,
+    "duration_seconds": 0.153,
+    "model_turn_started": false,
+    "failure": "Runtime state DB could not be opened; failed to initialize in-process app-server client: Access is denied. (os error 5)",
+    "usage_record_count": 0
+  },
+  "native_model_run": {
+    "start_utc": "2026-10-25T12:29:54.434144+00:00",
+    "end_utc": "2026-10-25T12:38:11.650634+00:00",
+    "duration_seconds": 497.216,
+    "timeout_seconds": 510,
+    "timed_out": false,
+    "exit_code": 0,
+    "native_turn_started_events": 1,
+    "native_turn_completed_events": 1,
+    "completed_command_events": 24,
+    "nonzero_command_exit_events": 6,
+    "builder_interventions": 0,
+    "environment_interventions": 1,
+    "environment_intervention_note": "One approved sandbox escalation after the runtime initialization failure; no task steering or skill repair during the model run."
+  },
+  "token_usage": {
+    "source": "Actual native JSONL turn.completed.usage events only",
+    "records": [
+      {
+        "input_tokens": 1216432,
+        "cached_input_tokens": 1167616,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 13759,
+        "reasoning_output_tokens": 2527
+      }
+    ],
+    "record_count": 1,
+    "totals": {
+      "cache_write_input_tokens": 0,
+      "cached_input_tokens": 1167616,
+      "input_tokens": 1216432,
+      "output_tokens": 13759,
+      "reasoning_output_tokens": 2527
+    },
+    "billing_cost": null,
+    "billing_note": "No price, billing cost, total-context estimate or amortized skill cost is inferred."
+  },
+  "tracker_state_keys": [
+    "architecture",
+    "behavior_contract",
+    "events",
+    "final_fingerprint",
+    "goal",
+    "idea_selection",
+    "mode",
+    "operation",
+    "plan",
+    "project",
+    "research_evidence",
+    "reviews",
+    "run_id",
+    "schema_version",
+    "security_history",
+    "security_scan",
+    "stages",
+    "started_at",
+    "structural_checks",
+    "tests",
+    "usability"
+  ],
+  "outcome": "Partial implementation; workflow incomplete",
+  "post_run_read_only_diagnosis": {
+    "complete": false,
+    "current_stage": "quality"
+  },
+  "tracker_stage_statuses": {
+    "research": "done",
+    "plan": "done",
+    "implement": "done",
+    "verify": "done",
+    "quality": "blocked",
+    "polish": "pending",
+    "final-verify": "pending",
+    "handoff": "pending"
+  },
+  "tracker_plan_profiles": {
+    "quality_profile": "enhanced",
+    "autonomy_profile": "standard",
+    "security_profile": "full",
+    "contract_profile": "standard",
+    "experience_profile": "v08",
+    "usability_profile": "novice-v1"
+  },
+  "native_tracker_report_complete_values": [],
+  "tracker_test_record_count": 7,
+  "tracker_review_verdicts": {
+    "quality": "needs-work"
+  },
+  "observed_host_limitations": {
+    "browser_inventory_returned_empty": true,
+    "thread_store_or_context_error_observed": true,
+    "browser_novice_gate_passed": false
+  },
+  "post_run_evaluator_checks": [
+    {
+      "command": "node tests/public-behavior.cjs",
+      "result": "pass",
+      "named_test_groups": [
+        "journey",
+        "edge",
+        "first-run",
+        "recovery"
+      ],
+      "test_origin": "Builder-authored tests, rerun by evaluator; minimal DOM fixture, not real browser"
+    },
+    {
+      "command": "python tests/smoke.py",
+      "result": "environment-blocked",
+      "reason": "Outer sandbox denied loopback socket access: WinError 10013",
+      "retried": false
+    }
+  ],
+  "public_artifacts": [
+    "reading-time/.gitignore",
+    "reading-time/index.html",
+    "reading-time/PROJECT_BRIEF.md",
+    "reading-time/README.md",
+    "reading-time/tests/public-behavior.cjs",
+    "reading-time/tests/smoke.py",
+    "reading-time/tests/test_delivery.py"
+  ],
+  "limitations": [
+    "One named-project offline run; it does not test Auto idea selection, external implementation research, Claude Code or production reliability.",
+    "The first restricted launch failed before skill discovery and is retained separately.",
+    "This report contains portable measurements and artifact paths, not the private raw transcript."
+  ],
+  "separate_browser_evaluator": {
+    "outcome": "not run; browser policy blocked the documented file URL launch",
+    "reason": "Browser URL policy allows http/https and rejected the file protocol; no alternate URL, server or browser workaround was attempted",
+    "real_browser_observations": 0
+  },
+  "capture_accounting_note": "Complete reported token coverage for the captured completed native turn does not mean the tracked project workflow completed."
+}

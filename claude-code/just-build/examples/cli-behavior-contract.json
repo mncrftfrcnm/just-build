@@ -1,0 +1,19 @@
+{
+  "name": "Task board public entry point",
+  "scenarios": [
+    {
+      "id": "first-run-and-persistence",
+      "steps": [
+        {"argv": ["{python}", "{project}/app.py", "--data", "{scratch}/tasks.json", "list"], "exit_code": 0, "stdout_contains": ["No tasks yet"], "file_absent": ["tasks.json"]},
+        {"argv": ["{python}", "{project}/app.py", "--data", "{scratch}/tasks.json", "add", "Write review"], "exit_code": 0, "file_contains": {"tasks.json": "Write review"}},
+        {"argv": ["{python}", "{project}/app.py", "--data", "{scratch}/tasks.json", "list"], "exit_code": 0, "stdout_contains": ["Write review"], "file_exists": ["tasks.json"]}
+      ]
+    },
+    {
+      "id": "invalid-action",
+      "steps": [
+        {"argv": ["{python}", "{project}/app.py", "--data", "{scratch}/tasks.json", "done", "999"], "exit_code": 2, "stderr_contains": ["does not exist"], "file_absent": ["tasks.json"]}
+      ]
+    }
+  ]
+}

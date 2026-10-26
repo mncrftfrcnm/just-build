@@ -1,0 +1,13 @@
+{
+  "reviewer_mode": "single-agent-fallback",
+  "verdict": "pass",
+  "summary": "Assessed the local-only task board after polishing. Read-only scan completed; reviewed input paths and dependency surface.",
+  "checks": {
+    "scope": "pass", "secrets": "pass", "input-validation": "pass", "abuse-controls": "pass", "dependencies": "pass"
+  },
+  "scan_finding_ids": [],
+  "threat_model": {"network_exposure": "none", "actors": "Local user running the task-board CLI", "trust_boundary": "CLI arguments and a user-selected local data file"},
+  "rate_limits": {"applicability": "not-applicable", "policy": "Offline CLI, no exposed listener or upstream API; bound local file operations are checked."},
+  "probe": {"status": "skipped-not-authorized", "detail": "No explicit scoped active-probing authorization; only passive scan and ordinary functional tests were executed."},
+  "findings": [], "changes": []
+}
